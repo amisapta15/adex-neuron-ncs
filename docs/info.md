@@ -8,6 +8,7 @@ You can also include images in this folder and reference them in the markdown. E
 -->
 
 ## How it works
+<<<<<<< HEAD
 Converts a 1.8v to 0v analog signal into an encoded 2-bit digital signal
 
 
@@ -18,3 +19,11 @@ You can test by taking a voltage of 0 to 1.8v to the analog pin 0 and the encode
 ## External hardware
 
 Voltage Supplies
+=======
+
+Just a test
+
+## How to test
+
+Just a test
+>>>>>>> origin/ttihp-template
