@@ -13,13 +13,6 @@ jobs:
         with:
           submodules: recursive
 
-<<<<<<< HEAD
-      - name: Build GDS
-        uses: TinyTapeout/tt-gds-action@ttihp26a
-        with:
-          pdk: ihp-sg13g2
-          librelane-version: 3.0.0.dev44
-=======
       - name: Read top module name
         id: top_module
         run: |
@@ -33,7 +26,6 @@ jobs:
           lef_path: lef/${{ steps.top_module.outputs.TOP_MODULE }}.lef
           verilog_path: src/project.v
           pdk: ihp-sg13g2
->>>>>>> origin/ttihp-template
 
   precheck:
     needs: gds
@@ -42,31 +34,11 @@ jobs:
       - name: Run Tiny Tapeout Precheck
         uses: TinyTapeout/tt-gds-action/precheck@ttihp26a
 
-<<<<<<< HEAD
-  gl_test:
-    needs: gds
-    runs-on: ubuntu-24.04
-    steps:
-      - name: checkout repo
-        uses: actions/checkout@v4
-        with:
-          submodules: recursive
-
-      - name: GL test
-        uses: TinyTapeout/tt-gds-action/gl_test@ttihp26a
-
-=======
->>>>>>> origin/ttihp-template
   viewer:
     needs: gds
     runs-on: ubuntu-24.04
     permissions:
-<<<<<<< HEAD
-      pages: write # to deploy to Pages
-      id-token: write # to verify the deployment originates from an appropriate source
-=======
       pages: write      # to deploy to Pages
       id-token: write   # to verify the deployment originates from an appropriate source
->>>>>>> origin/ttihp-template
     steps:
       - uses: TinyTapeout/tt-gds-action/viewer@ttihp26a

@@ -1,21 +1,10 @@
 .DS_Store
 .idea
-<<<<<<< HEAD
-*.vcd
-*.fst
-*.fst.hier
-*.vscode
-runs
-tt_submission
-src/user_config.json
-src/config_merged.json
-=======
 .vscode
 *.vcd
 runs
 tt_submission
 src/user_config.tcl
->>>>>>> origin/ttihp-template
 test/sim_build
 test/__pycache__/
 test/results.xml
