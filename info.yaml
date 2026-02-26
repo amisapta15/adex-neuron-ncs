@@ -57,8 +57,8 @@ pinout:
   ua[0]: "Test1"
   ua[1]: "Test2"
   ua[2]: "Test3"
-  ua[3]: ""
-  ua[4]: ""
+  ua[3]: "Test4"
+  ua[4]: "test5"
   ua[5]: ""
 
 # Do not change!
