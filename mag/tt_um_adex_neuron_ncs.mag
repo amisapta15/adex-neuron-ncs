@@ -1,9 +1,9 @@
 magic
 tech ihp-sg13g2
 magscale 1 2
-timestamp 1770927354
+timestamp 1772123751
 << checkpaint >>
-rect -800 -1000 3680 63600
+rect -1800 -1000 3680 63600
 << metal4 >>
 rect 5922 62548 5982 62748
 rect 6690 62548 6750 62748
@@ -167,5 +167,5 @@ port 51 nsew power bidirectional
 flabel metal6 1200 1000 1680 61600 1 FreeSans 400 0 0 0 VGND
 port 52 nsew ground bidirectional
 << properties >>
-string FIXED_BBOX 0 0 40416 62748
+string FIXED_BBOX 0 0 83904 62748
 << end >>
