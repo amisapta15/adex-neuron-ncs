@@ -5,7 +5,7 @@
 
 `default_nettype none
 
-module tt_um_adex-neuron-ncs (
+module tt_um_adex_neuron_ncs (
     input  wire       VGND,
     input  wire       VDPWR,    // 1.8v power supply
     input  wire [7:0] ui_in,    // Dedicated inputs

@@ -11,10 +11,10 @@ project:
   tiles: "2x2"          # Valid values for analog projects: 1x2, 2x2
 
   # How many analog pins does your project use?
-  analog_pins: 0        # Valid values: 0 to 6
+  analog_pins: 5        # Valid values: 0 to 6
 
   # Your top module name must start with "tt_um_". Make it unique by including your github username:
-  top_module:  "tt_um_adex-neuron-ncs"
+  top_module:  "tt_um_adex_neuron_ncs"
 
   # List your project's source files here. Source files must be in ./src and you must list each source file separately, one per line:
   source_files:        
@@ -54,9 +54,9 @@ pinout:
   uio[7]: ""
 
   # Analog pins - make sure to also set "analog_pins" above, else the pins won't be connected
-  ua[0]: ""
-  ua[1]: ""
-  ua[2]: ""
+  ua[0]: "Test1"
+  ua[1]: "Test2"
+  ua[2]: "Test3"
   ua[3]: ""
   ua[4]: ""
   ua[5]: ""
