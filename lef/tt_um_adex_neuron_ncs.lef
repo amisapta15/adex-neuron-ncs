@@ -2,11 +2,11 @@ VERSION 5.7 ;
   NOWIREEXTENSIONATPIN ON ;
   DIVIDERCHAR "/" ;
   BUSBITCHARS "[]" ;
-MACRO tt_um_analog_example
+MACRO tt_um_adex_neuron_ncs
   CLASS BLOCK ;
-  FOREIGN tt_um_analog_example ;
+  FOREIGN tt_um_adex_neuron_ncs ;
   ORIGIN 0.000 0.000 ;
-  SIZE 202.080 BY 313.740 ;
+  SIZE 419.520 BY 313.740 ;
   PIN clk
     DIRECTION INPUT ;
     USE SIGNAL ;
@@ -431,6 +431,6 @@ MACRO tt_um_analog_example
         RECT 6.000 5.000 8.400 308.000 ;
     END
   END VGND
-END tt_um_analog_example
+END tt_um_adex_neuron_ncs
 END LIBRARY
 
