@@ -1,6 +1,6 @@
-** sch_path: /foss/designs/adex_neuron/ttihp26a-adex-neuron-ncs/xschem/FB_system.sch
-.subckt FB_system VDD out V_mem GND
-*.PININFO out:O V_mem:B VDD:B GND:B
+** sch_path: /foss/designs/adex_neuron/chenxi_working/ttihp26a-adex-neuron-ncs/xschem/FB_system.sch
+.subckt FB_system VDD out V_mem GND nwell psub
+*.PININFO out:O V_mem:B VDD:B GND:B nwell:B psub:B
 Mmirr Vmir Vmir VDD nwell sg13_hv_pmos w=4u l=2u ng=4
 Mmirl4 V_mem Vmir net1 nwell sg13_hv_pmos w=1u l=2u ng=1
 Mthr out V_mem Vmir nwell sg13_hv_pmos w=4u l=2u ng=4

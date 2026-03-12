@@ -68,27 +68,27 @@ N -2370 -1810 -2370 -1790 {lab=GND}
 N -2230 -1810 -2230 -1790 {lab=GND}
 N -2100 -1810 -2100 -1790 {lab=GND}
 N -2100 -1890 -2100 -1870 {lab=out}
-N -2370 -1990 -2350 -1990 {lab=VDD}
+N -2370 -1990 -2350 -1990 {lab=nwell}
 N -2370 -2040 -2370 -2020 {lab=VDD}
 N -2420 -1990 -2410 -1990 {lab=VDD}
 N -2420 -1990 -2420 -1960 {lab=VDD}
 N -2420 -1960 -2370 -1960 {lab=VDD}
 N -2420 -2020 -2420 -1990 {lab=VDD}
 N -2420 -2020 -2370 -2020 {lab=VDD}
-N -2230 -1990 -2210 -1990 {lab=VDD}
+N -2230 -1990 -2210 -1990 {lab=nwell}
 N -2230 -2040 -2230 -2020 {lab=VDD}
 N -2280 -1990 -2270 -1990 {lab=VDD}
 N -2280 -1990 -2280 -1960 {lab=VDD}
 N -2280 -1960 -2230 -1960 {lab=VDD}
 N -2280 -2020 -2280 -1990 {lab=VDD}
 N -2280 -2020 -2230 -2020 {lab=VDD}
-N -2100 -1990 -2080 -1990 {lab=VDD}
+N -2100 -1990 -2080 -1990 {lab=nwell}
 N -2100 -2040 -2100 -2020 {lab=VDD}
 N -2150 -1990 -2140 -1990 {lab=VDD}
 N -2150 -2020 -2150 -1990 {lab=VDD}
 N -2150 -2020 -2100 -2020 {lab=VDD}
 N -2100 -1960 -2100 -1940 {lab=out}
-N -1970 -1990 -1950 -1990 {lab=VDD}
+N -1970 -1990 -1950 -1990 {lab=nwell}
 N -1970 -2040 -1970 -2020 {lab=VDD}
 N -2020 -1990 -2010 -1990 {lab=VDD}
 N -2020 -2020 -2020 -1990 {lab=VDD}
@@ -278,7 +278,6 @@ l=10.5e-6
 rw=0.3e-6
 }
 C {lab_wire.sym} -2290 -1700 0 0 {name=p33 sig_type=std_logic lab=VDD}
-C {lab_wire.sym} -2290 -1580 0 0 {name=p34 sig_type=std_logic lab=nwell}
 C {sg13g2_pr/ptap1_ring.sym} -2120 -1640 0 0 {name=R2
 model=ptap1
 spiceprefix=X
@@ -286,5 +285,8 @@ w=16e-6
 l=8.2e-6
 rw=0.3e-6
 }
-C {lab_wire.sym} -2120 -1580 0 0 {name=p35 sig_type=std_logic lab=psub}
 C {lab_wire.sym} -2120 -1700 0 0 {name=p36 sig_type=std_logic lab=GND}
+C {iopin.sym} -2290 -1580 3 1 {name=p37 lab=nwell
+}
+C {iopin.sym} -2120 -1580 3 1 {name=p38 lab=psub
+}
