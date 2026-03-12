@@ -1,21 +1,26 @@
 ** sch_path: /foss/designs/adex_neuron/ttihp26a-adex-neuron-ncs/xschem/neuron_noahp_tb.sch
 **.subckt neuron_noahp_tb
-Xneuron VDD I_in I_lk I_lk vmem REQ ACK Iref GND neuron_noahp
-Ithr VDD I_thr 1p
+Xneuron VDD I_in I_lk I_lk vmem REQ ACK I_ref GND neuron_noahp
 Ilk VDD I_lk 4p
 Iin VDD I_in dc 0 ac 0 pulse(0 Iin_amp 0 20n 20n 1 1)
 VDD1 VDD net1 1.2
-Iref VDD Iref 10n
+Iref VDD I_ref 10n
 Vidd net1 GND 0
 .save i(vidd)
-XM26 I_thr I_thr GND GND sg13_hv_nmos w=1u l=8u ng=2 m=8
 XM27 I_lk I_lk GND GND sg13_hv_nmos w=4u l=4u ng=2 m=4
-XM15 Iref Iref GND GND sg13_hv_nmos w=4u l=4u ng=2 m=4
 Xinv3 VDD REQ net2 GND inv
 Xinv4 VDD net2 ACK GND inv
-C1 I_thr GND 2p
 C2 I_lk GND 2p
-C3 Iref GND 2p
+XM1 I_ref I_ref GND GND sg13_hv_nmos w=4u l=4u ng=2 m=4
+C1 I_ref GND 2p
+xv2i VDD V_bias V_cm V_in GND GND V2I_shift_final
+XM3 V_bias V_bias VDD VDD sg13_hv_pmos w=4u l=1u ng=1 m=4
+C3 VDD V_bias 2p
+Ilk1 V_bias GND 6n
+Vcm V_cm GND 0.4
+Vin V_in GND sine(0.4 50m 10)
+Viinprob net3 GND 0
+.save i(viinprob)
 **** begin user architecture code
 
 
@@ -23,9 +28,10 @@ C3 Iref GND 2p
 .param temp=27
 .param Iin_amp=200p
 
-.ic V(vmem)=0 V(xneuron.xref.vref)=0 V(REQ)=0 V(ACK)=0 V(CapAdap)=0
+.ic V(vmem)=0 V(xneuron.xref.vref)=0 V(REQ)=1.2 V(ACK)=1.2
 
 .options gmin=1e-13
+.options method=gear
 .control
 
 
@@ -80,34 +86,48 @@ dowhile sweep_idx < num_pts
   tran 50n $t_sim
 
   * --- Measure firing frequency using meas tran ---
-  * Skip 1st spike (startup glitch), use 2nd-4th spikes
-  let t_rise2 = 0
-  let t_rise3 = 0
-  let t_rise4 = 0
-  meas tran t_rise2 WHEN v(REQ)=0.6 RISE=2
-  meas tran t_rise3 WHEN v(REQ)=0.6 RISE=3
-  meas tran t_rise4 WHEN v(REQ)=0.6 RISE=4
+  * Skip 1st spike (different freq from resting), use 2nd-4th spikes
+  let t_fall1 = 0
+  let t_fall2 = 0
+  let t_fall3 = 0
+  let t_fall4 = 0
+  meas tran t_fall1 WHEN v(REQ)=0.6 FALL=1
+  meas tran t_fall2 WHEN v(REQ)=0.6 FALL=2
+  meas tran t_fall3 WHEN v(REQ)=0.6 FALL=3
+  meas tran t_fall4 WHEN v(REQ)=0.6 FALL=4
 
   * Use best available data for frequency
-  if t_rise4 > 0
-    * 4+ spikes: use 3rd-4th ISI
-    let f_rate = 1.0 / (t_rise4 - t_rise3)
+  * More than 1 spike: f = (N-1) / (t_last - t_first)
+  * Exactly 1 spike:   f = 1 / t_first
+  if t_fall4 > 0
+    * 4 spikes: use span from 1st to 4th
+    let f_rate = 3.0 / (t_fall4 - t_fall1)
   else
-    if t_rise3 > 0
-      * 3 spikes: use 2nd-3rd ISI
-      let f_rate = 1.0 / (t_rise3 - t_rise2)
+    if t_fall3 > 0
+      * 3 spikes: use span from 1st to 3rd
+      let f_rate = 2.0 / (t_fall3 - t_fall1)
     else
-      if t_rise2 > 0
-        * 2 spikes: estimate rate from time to 2nd spike
-        let f_rate = 1.0 / t_rise2
+      if t_fall2 > 0
+        * 2 spikes: use span from 1st to 2nd
+        let f_rate = 1.0 / (t_fall2 - t_fall1)
       else
-        * No real spikes (only glitch or none)
-        let f_rate = 0
+        if t_fall1 > 0
+          * 1 spike: estimate from time to 1st spike
+          let f_rate = 1.0 / t_fall1
+        else
+          * No spikes
+          let f_rate = 0
+        end
       end
     end
   end
 
   echo   freq = $&f_rate Hz
+  echo   Spike times:
+  echo     t_fall1 = $&t_fall1 s
+  echo     t_fall2 = $&t_fall2 s
+  echo     t_fall3 = $&t_fall3 s
+  echo     t_fall4 = $&t_fall4 s
 
   * --- Update t_sim for next sweep point ---
   * Need ~5 spikes worth of time, clamp to [1ms, 50ms]
@@ -192,6 +212,37 @@ XM2 out in GND GND sg13_hv_nmos w=1u l=0.5u ng=1
 .ends
 
 
+* expanding   symbol:  V2I_shift_final.sym # of pins=6
+** sym_path: /foss/designs/adex_neuron/ttihp26a-adex-neuron-ncs/xschem/V2I_shift_final.sym
+** sch_path: /foss/designs/adex_neuron/ttihp26a-adex-neuron-ncs/xschem/V2I_shift_final.sch
+.subckt V2I_shift_final VDD Vbias inn_cm inp_cm out GND
+*.ipin inn_cm
+*.ipin inp_cm
+*.opin out
+*.ipin Vbias
+*.iopin VDD
+*.iopin GND
+VIout net2 out 0
+.save i(viout)
+XM2 net3 inp_cm Vhead VDD sg13_hv_pmos w=4u l=1u ng=1 m=4
+XM5 net1 net1 GND GND sg13_hv_nmos w=4u l=1u ng=1 m=4
+Vbias1 net6 Vhead 0
+.save i(vbias1)
+Vbranch1 net5 net2 0
+.save i(vbranch1)
+Vbranch2 net3 net1 0
+.save i(vbranch2)
+Vbranch3 net2 net4 0
+.save i(vbranch3)
+XM13 net6 Vbias VDD VDD sg13_hv_pmos w=4u l=1u ng=1 m=4
+XM1 net4 net1 GND GND sg13_hv_nmos w=4u l=1u ng=1 m=4
+XM3 net5 inn_cm Vhead VDD sg13_hv_pmos w=4u l=1u ng=1 m=4
+Vbias3 net7 out 0
+.save i(vbias3)
+XM4 net7 Vbias VDD VDD sg13_hv_pmos w=4u l=1u ng=1 m=3
+.ends
+
+
 * expanding   symbol:  DPI.sym # of pins=6
 ** sym_path: /foss/designs/adex_neuron/ttihp26a-adex-neuron-ncs/xschem/DPI.sym
 ** sch_path: /foss/designs/adex_neuron/ttihp26a-adex-neuron-ncs/xschem/DPI.sch
@@ -219,16 +270,15 @@ Vilk V_mem net1 0
 *.iopin VDD
 *.iopin GND
 XMmirr Vmir Vmir VDD VDD sg13_hv_pmos w=4u l=2u ng=4
-XMfbsw V_mem out net1 VDD sg13_hv_pmos w=1u l=0.5u ng=2
-XMmirl4 net1 Vmir net2 VDD sg13_hv_pmos w=1u l=2u ng=1
-XMthr out V_mem Vmir VDD sg13_hv_pmos w=1u l=2u ng=2 m=4
-XMmem1 out V_mem net3 GND sg13_hv_nmos w=1u l=2u ng=1 m=2
-XMmirl3 net2 Vmir net4 VDD sg13_hv_pmos w=1u l=2u ng=1
-XMmirl2 net4 Vmir net5 VDD sg13_hv_pmos w=1u l=2u ng=1
-XMmirl1 net5 Vmir VDD VDD sg13_hv_pmos w=1u l=2u ng=1
-XMmem2 net3 V_mem net6 GND sg13_hv_nmos w=1u l=2u ng=1 m=2
-XMmem3 net6 V_mem net7 GND sg13_hv_nmos w=1u l=2u ng=1 m=2
-XMmem4 net7 V_mem GND GND sg13_hv_nmos w=1u l=2u ng=1 m=2
+XMmirl4 V_mem Vmir net1 VDD sg13_hv_pmos w=1u l=2u ng=1
+XMthr out V_mem Vmir VDD sg13_hv_pmos w=4u l=2u ng=4
+XMmem1 out V_mem net2 GND sg13_hv_nmos w=1u l=2u ng=1 m=2
+XMmirl3 net1 Vmir net3 VDD sg13_hv_pmos w=1u l=2u ng=1
+XMmirl2 net3 Vmir net4 VDD sg13_hv_pmos w=1u l=2u ng=1
+XMmirl1 net4 Vmir VDD VDD sg13_hv_pmos w=1u l=2u ng=1
+XMmem2 net2 V_mem net5 GND sg13_hv_nmos w=1u l=2u ng=1 m=2
+XMmem3 net5 V_mem net6 GND sg13_hv_nmos w=1u l=2u ng=1 m=2
+XMmem4 net6 V_mem GND GND sg13_hv_nmos w=1u l=2u ng=1 m=2
 .ends
 
 

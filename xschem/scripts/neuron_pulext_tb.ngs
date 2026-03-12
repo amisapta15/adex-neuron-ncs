@@ -1,13 +1,11 @@
-name=example_Simulator1
-simulator=ngspice
-only_toplevel=false 
-value="
+"
 .param temp=27
 .param Iin_amp=200p
 
-.ic V(vmem)=0 V(xneuron.xref.vref)=0 V(REQ)=0 V(ACK)=0 V(CapAdap)=0
+.ic V(vmem)=0 V(xneuron.xref.vref)=0 V(REQ)=1.2 V(ACK)=1.2
 
 .options gmin=1e-13
+.options method=gear
 .control
 
 
@@ -62,34 +60,48 @@ dowhile sweep_idx < num_pts
   tran 50n $t_sim
 
   * --- Measure firing frequency using meas tran ---
-  * Skip 1st spike (startup glitch), use 2nd-4th spikes
-  let t_rise2 = 0
-  let t_rise3 = 0
-  let t_rise4 = 0
-  meas tran t_rise2 WHEN v(REQ)=0.6 RISE=2
-  meas tran t_rise3 WHEN v(REQ)=0.6 RISE=3
-  meas tran t_rise4 WHEN v(REQ)=0.6 RISE=4
+  * Skip 1st spike (different freq from resting), use 2nd-4th spikes
+  let t_fall1 = 0
+  let t_fall2 = 0
+  let t_fall3 = 0
+  let t_fall4 = 0
+  meas tran t_fall1 WHEN v(REQ)=0.6 FALL=1
+  meas tran t_fall2 WHEN v(REQ)=0.6 FALL=2
+  meas tran t_fall3 WHEN v(REQ)=0.6 FALL=3
+  meas tran t_fall4 WHEN v(REQ)=0.6 FALL=4
 
   * Use best available data for frequency
-  if t_rise4 > 0
-    * 4+ spikes: use 3rd-4th ISI
-    let f_rate = 1.0 / (t_rise4 - t_rise3)
+  * More than 1 spike: f = (N-1) / (t_last - t_first)
+  * Exactly 1 spike:   f = 1 / t_first
+  if t_fall4 > 0
+    * 4 spikes: use span from 1st to 4th
+    let f_rate = 3.0 / (t_fall4 - t_fall1)
   else
-    if t_rise3 > 0
-      * 3 spikes: use 2nd-3rd ISI
-      let f_rate = 1.0 / (t_rise3 - t_rise2)
+    if t_fall3 > 0
+      * 3 spikes: use span from 1st to 3rd
+      let f_rate = 2.0 / (t_fall3 - t_fall1)
     else
-      if t_rise2 > 0
-        * 2 spikes: estimate rate from time to 2nd spike
-        let f_rate = 1.0 / t_rise2
+      if t_fall2 > 0
+        * 2 spikes: use span from 1st to 2nd
+        let f_rate = 1.0 / (t_fall2 - t_fall1)
       else
-        * No real spikes (only glitch or none)
-        let f_rate = 0
+        if t_fall1 > 0
+          * 1 spike: estimate from time to 1st spike
+          let f_rate = 1.0 / t_fall1
+        else
+          * No spikes
+          let f_rate = 0
+        end
       end
     end
   end
 
   echo   freq = $&f_rate Hz
+  echo   Spike times:
+  echo     t_fall1 = $&t_fall1 s
+  echo     t_fall2 = $&t_fall2 s
+  echo     t_fall3 = $&t_fall3 s
+  echo     t_fall4 = $&t_fall4 s
 
   * --- Update t_sim for next sweep point ---
   * Need ~5 spikes worth of time, clamp to [1ms, 50ms]

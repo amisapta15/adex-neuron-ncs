@@ -1,0 +1,20 @@
+"
+.param temp=27
+.param Iin_amp=2n
+
+.ic V(vmem)=0 V(xneuron.xref.vref)=0 V(REQ)=1.2 V(ACK)=1.2
+
+.options gmin=1e-13
+.control
+
+save V(I_lk) V(I_in) I(Viinprob)
+save V(ACK) V(REQ) V(vmem) V(xneuron.xref.vref)
+save V(xneuron.xfb.vmir) V(xneuron.vfb)
+save V(V_in) V(V_cm) V(xv2i.vhead)
+
+
+tran 50n 10m
+write neuron_noahp_tb.raw
+.endc
+
+"
