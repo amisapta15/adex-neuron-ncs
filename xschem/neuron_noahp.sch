@@ -13,7 +13,6 @@ N 610 -90 610 -20 {lab=GND}
 N 290 -130 340 -130 {lab=Vfb}
 N -40 -130 -10 -130 {lab=Vmem}
 N 400 -20 610 -20 {lab=GND}
-N 140 -20 400 -20 {lab=GND}
 N 690 -130 720 -130 {lab=REQ}
 N 550 260 720 260 {lab=REQ}
 N 550 300 610 300 {lab=V_ref}
@@ -56,6 +55,9 @@ N -40 -130 -40 60 {lab=Vmem}
 N 140 -230 140 -190 {lab=VDD}
 N -360 -230 140 -230 {lab=VDD}
 N 140 -70 140 -20 {lab=GND}
+N 170 -70 170 -40 {lab=VDD}
+N 140 -20 400 -20 {lab=GND}
+N 200 -70 200 -40 {lab=#net2}
 C {inv.sym} 480 -130 0 0 {name=Xinv1}
 C {inv.sym} 690 -130 0 0 {name=Xinv2}
 C {DPI.sym} -360 -130 0 0 {name=Xdpi1}
@@ -79,3 +81,5 @@ footprint=1206
 device="ceramic capacitor"}
 C {opin.sym} -20 60 0 0 {name=p13 lab=Vmem}
 C {lab_wire.sym} 320 -130 0 0 {name=p14 sig_type=std_logic lab=Vfb}
+C {lab_wire.sym} 170 -40 0 0 {name=p9 sig_type=std_logic lab=nwell}
+C {lab_wire.sym} 200 -40 0 0 {name=p10 sig_type=std_logic lab=psub}

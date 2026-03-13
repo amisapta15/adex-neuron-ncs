@@ -26,7 +26,7 @@ N 350 -70 445 -70 {lab=GND}
 N 540 -230 540 -220 {lab=V_mem}
 C {sg13g2_pr/sg13_hv_pmos.sym} 330 -260 0 0 {name=Mdifl
 l=2u
-w=4u
+w=2u
 ng=2
 m=8
 model=sg13_hv_pmos
@@ -34,7 +34,7 @@ spiceprefix=X
 }
 C {sg13g2_pr/sg13_hv_pmos.sym} 560 -260 0 1 {name=Mdifr
 l=2u
-w=4u
+w=2u
 ng=2
 m=8
 model=sg13_hv_pmos
