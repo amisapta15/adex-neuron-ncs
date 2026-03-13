@@ -3227,17 +3227,6 @@
    </references>
   </cell>
   <cell>
-   <name>nmosHV$4</name>
-   <variant />
-   <layout-name>nmosHV$4</layout-name>
-   <references>
-    <ref>
-     <parent>DPI</parent>
-     <trans>r0 *1 6.51,7.415</trans>
-    </ref>
-   </references>
-  </cell>
-  <cell>
    <name>pmosHV$1</name>
    <variant />
    <layout-name>pmosHV$1</layout-name>
@@ -3251,102 +3240,6 @@
  </cells>
  <items>
  <item>
-   <tags />
-   <category>'M1.d'</category>
-   <cell>DPI</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment />
-   <image />
-   <values>
-    <value>polygon: (24.1,7.415;24.1,7.915;24.26,7.915;24.26,7.415)</value>
-   </values>
-  </item>
-  <item>
-   <tags />
-   <category>'M1.d'</category>
-   <cell>DPI</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment />
-   <image />
-   <values>
-    <value>polygon: (3.2,7.415;3.2,7.915;3.36,7.915;3.36,7.415)</value>
-   </values>
-  </item>
-  <item>
-   <tags />
-   <category>'M1.d'</category>
-   <cell>DPI</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment />
-   <image />
-   <values>
-    <value>polygon: (3.2,0.865;3.2,1.365;3.36,1.365;3.36,0.865)</value>
-   </values>
-  </item>
-  <item>
-   <tags />
-   <category>'M1.d'</category>
-   <cell>DPI</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment />
-   <image />
-   <values>
-    <value>polygon: (24.1,0.865;24.1,1.365;24.26,1.365;24.26,0.865)</value>
-   </values>
-  </item>
-  <item>
-   <tags />
-   <category>'M1.d'</category>
-   <cell>DPI</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment />
-   <image />
-   <values>
-    <value>polygon: (6.58,7.415;6.58,7.915;6.74,7.915;6.74,7.415)</value>
-   </values>
-  </item>
-  <item>
-   <tags />
-   <category>'M1.d'</category>
-   <cell>DPI</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment />
-   <image />
-   <values>
-    <value>polygon: (27.48,0.865;27.48,1.365;27.64,1.365;27.64,0.865)</value>
-   </values>
-  </item>
-  <item>
-   <tags />
-   <category>'M1.d'</category>
-   <cell>DPI</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment />
-   <image />
-   <values>
-    <value>polygon: (27.48,7.415;27.48,7.915;27.64,7.915;27.64,7.415)</value>
-   </values>
-  </item>
-  <item>
-   <tags />
-   <category>'M1.d'</category>
-   <cell>DPI</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment />
-   <image />
-   <values>
-    <value>polygon: (6.58,0.865;6.58,1.365;6.74,1.365;6.74,0.865)</value>
-   </values>
-  </item>
-  <item>
    <tags />
    <category>'M1.d'</category>
    <cell>pmosHV$6</cell>
@@ -3476,42 +3369,6 @@
    <image />
    <values>
     <value>polygon: (23.87,0;23.87,0.5;24.03,0.5;24.03,0)</value>
-   </values>
-  </item>
-  <item>
-   <tags />
-   <category>'M1.d'</category>
-   <cell>nmosHV$4</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment />
-   <image />
-   <values>
-    <value>polygon: (4.45,0;4.45,0.5;4.61,0.5;4.61,0)</value>
-   </values>
-  </item>
-  <item>
-   <tags />
-   <category>'M1.d'</category>
-   <cell>nmosHV$4</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment />
-   <image />
-   <values>
-    <value>polygon: (8.83,0;8.83,0.5;8.99,0.5;8.99,0)</value>
-   </values>
-  </item>
-  <item>
-   <tags />
-   <category>'M1.d'</category>
-   <cell>nmosHV$4</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment />
-   <image />
-   <values>
-    <value>polygon: (13.21,0;13.21,0.5;13.37,0.5;13.37,0)</value>
    </values>
   </item>
   <item>
