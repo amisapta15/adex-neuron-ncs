@@ -12,35 +12,22 @@ N 510 -520 510 -480 {lab=I_lk}
 N -10 -550 -10 -530 {lab=#net1}
 N 680 -600 680 -580 {lab=VDD}
 N 680 -520 680 -480 {lab=I_ref}
-N -40 -150 -40 -130 {lab=VDD}
+N -40 -150 -40 -100 {lab=VDD}
 N 510 -440 510 -380 {lab=GND}
-N -210 -30 -180 -30 {lab=I_lk}
 N -230 -10 -180 -10 {lab=I_ref}
-N 430 -10 460 -10 {lab=#net2}
-N 600 -10 630 -10 {lab=ACK}
-N 350 -130 520 -130 {lab=VDD}
-N 520 -130 520 -50 {lab=VDD}
-N 350 -130 350 -50 {lab=VDD}
-N 630 -10 630 110 {lab=ACK}
+N 430 -30 460 -30 {lab=#net2}
+N 600 -30 630 -30 {lab=ACK}
 N -220 10 -180 10 {lab=ACK}
-N 440 90 440 150 {lab=GND}
-N 440 90 520 90 {lab=GND}
-N 520 30 520 90 {lab=GND}
-N 350 30 350 90 {lab=GND}
-N 120 -30 190 -30 {lab=REQ}
-N 120 -50 170 -50 {lab=vmem}
-N 190 -30 190 -10 {lab=REQ}
+N 520 10 520 70 {lab=GND}
+N 350 10 350 70 {lab=GND}
+N 120 -30 290 -30 {lab=REQ}
+N 120 -50 170 -50 {lab=Vmem}
 N 100 -600 100 -580 {lab=VDD}
-N -40 -130 -40 -100 {lab=VDD}
 N -20 -120 -20 -100 {lab=GND}
-N 350 90 440 90 {lab=GND}
+N 440 70 520 70 {lab=GND}
 N -220 10 -220 110 {lab=ACK}
-N -40 -130 350 -130 {lab=VDD}
 N -220 110 630 110 {lab=ACK}
-N 190 -10 290 -10 {lab=REQ}
-N -210 -50 -210 -30 {lab=I_lk}
-N -230 -30 -210 -30 {lab=I_lk}
-N -210 -50 -180 -50 {lab=I_lk}
+N -230 -30 -180 -30 {lab=I_lk}
 N 550 -440 560 -440 {lab=I_lk}
 N 560 -480 560 -440 {lab=I_lk}
 N 510 -480 560 -480 {lab=I_lk}
@@ -75,6 +62,19 @@ N 100 -460 100 -430 {lab=V_in}
 N -490 -170 -490 -140 {lab=V_bias}
 N -360 -70 -320 -70 {lab=GND}
 N -260 -70 -180 -70 {lab=I_in}
+N 990 -140 990 -110 {lab=VDD}
+N 970 -140 970 -110 {lab=V_bias}
+N 990 30 990 60 {lab=GND}
+N 820 -40 880 -40 {lab=Vmem}
+N 1100 -40 1160 -40 {lab=vmem_buf}
+N 1160 -40 1160 -20 {lab=vmem_buf}
+N 1160 40 1160 60 {lab=GND}
+N 120 -10 170 -10 {lab=Vrefcap}
+N 350 -100 350 -70 {lab=VDD}
+N 520 -100 520 -70 {lab=VDD}
+N 440 70 440 150 {lab=GND}
+N 350 70 440 70 {lab=GND}
+N 630 -30 630 110 {lab=ACK}
 C {neuron_noahp.sym} -30 0 0 0 {name=Xneuron}
 C {simulator_commands_shown.sym} 930 -1070 0 0 {name=example_Simulator1
 simulator=ngspice
@@ -86,13 +86,13 @@ value="
 .ic V(vmem)=0 V(xneuron.xref.vref)=0 V(REQ)=1.2 V(ACK)=1.2
 
 .options gmin=1e-13
+.options method=gear
 .control
 
 save V(I_lk) V(I_in) I(Viinprob)
-save V(ACK) V(REQ) V(vmem) V(xneuron.xref.vref)
-save V(xneuron.xfb.vmir) V(xneuron.vfb)
-save V(xneuron.xfb.nwell) V(xneuron.xfb.psub)
+save V(ACK) V(REQ) V(vmem) V(vmem_buf) V(vrefcap)
 save V(V_in) V(V_cm) V(xv2i.vhead)
+save V(xbuffer.vb)
 
 
 tran 50n 20m
@@ -100,6 +100,9 @@ write neuron_noahp_tb.raw
 .endc
 
 "
+
+
+
 
 
 
@@ -152,7 +155,7 @@ C {lab_pin.sym} 510 -500 0 0 {name=p37 sig_type=std_logic lab=I_lk}
 C {vsource.sym} -10 -580 0 0 {name=VDD1 value=1.2 savecurrent=false}
 C {gnd.sym} -10 -470 0 0 {name=l7 lab=GND}
 C {vdd.sym} -10 -610 0 0 {name=l8 lab=VDD}
-C {isource.sym} 680 -550 0 0 {name=Iref value=10n}
+C {isource.sym} 680 -550 0 0 {name=Iref value=70p}
 C {vdd.sym} 680 -600 0 0 {name=l16 lab=VDD}
 C {vdd.sym} 100 -600 0 0 {name=l18 lab=VDD}
 C {vdd.sym} 510 -600 0 0 {name=l20 lab=VDD}
@@ -169,15 +172,13 @@ spiceprefix=X
 }
 C {gnd.sym} 510 -360 0 0 {name=l4 lab=GND}
 C {lab_pin.sym} 630 80 2 1 {name=p9 sig_type=std_logic lab=ACK}
-C {lab_pin.sym} 190 -10 1 1 {name=p10 sig_type=std_logic lab=REQ}
-C {inv.sym} 430 -10 0 0 {name=Xinv3}
-C {inv.sym} 600 -10 0 0 {name=Xinv4}
+C {inv.sym} 430 -30 0 0 {name=Xinv3}
+C {inv.sym} 600 -30 0 0 {name=Xinv4}
 C {capa.sym} 560 -410 0 0 {name=C2
 m=1
 value=2p
 footprint=1206
 device="ceramic capacitor"}
-C {lab_pin.sym} 170 -50 2 0 {name=p12 sig_type=std_logic lab=vmem}
 C {lab_wire.sym} -20 -110 0 1 {name=p6 sig_type=std_logic lab=GND}
 C {lab_pin.sym} 680 -500 0 0 {name=p3 sig_type=std_logic lab=I_ref}
 C {sg13g2_pr/sg13_hv_nmos.sym} 700 -440 0 1 {name=M1
@@ -213,7 +214,7 @@ m=1
 value=2p
 footprint=1206
 device="ceramic capacitor"}
-C {isource.sym} 360 -420 0 0 {name=Ilk1 value=6n}
+C {isource.sym} 360 -420 0 0 {name=Ilk1 value=4n}
 C {gnd.sym} 360 -360 0 0 {name=l9 lab=GND}
 C {lab_wire.sym} -210 -70 0 0 {name=p2 sig_type=std_logic lab=I_in}
 C {gnd.sym} -470 30 0 0 {name=l10 lab=GND}
@@ -231,3 +232,20 @@ C {vsource.sym} -280 -190 3 0 {name=Viinprob value=0 savecurrent=true}
 C {lab_wire.sym} 100 -500 0 0 {name=p16 sig_type=std_logic lab=I_in}
 C {gnd.sym} -320 -70 0 0 {name=l13 lab=GND}
 C {gnd.sym} -250 -190 0 0 {name=l14 lab=GND}
+C {buffer_final.sym} 970 220 0 0 {name=xbuffer}
+C {vdd.sym} 990 -140 0 0 {name=l15 lab=VDD}
+C {lab_wire.sym} 970 -140 0 0 {name=p17 sig_type=std_logic lab=V_bias}
+C {gnd.sym} 990 60 0 0 {name=l17 lab=GND}
+C {lab_wire.sym} 850 -40 0 0 {name=p18 sig_type=std_logic lab=Vmem}
+C {capa.sym} 1160 10 0 0 {name=C4
+m=1
+value=20p
+footprint=1206
+device="ceramic capacitor"}
+C {gnd.sym} 1160 60 0 0 {name=l19 lab=GND}
+C {lab_wire.sym} 1160 -40 0 0 {name=p19 sig_type=std_logic lab=vmem_buf}
+C {vdd.sym} 350 -100 0 0 {name=l21 lab=VDD}
+C {vdd.sym} 520 -100 0 0 {name=l22 lab=VDD}
+C {lab_wire.sym} 210 -30 0 0 {name=p10 sig_type=std_logic lab=REQ}
+C {lab_wire.sym} 170 -50 0 0 {name=p12 sig_type=std_logic lab=Vmem}
+C {lab_wire.sym} 170 -10 0 0 {name=p20 sig_type=std_logic lab=Vrefcap}

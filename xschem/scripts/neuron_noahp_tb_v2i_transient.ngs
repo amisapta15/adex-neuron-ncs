@@ -5,13 +5,13 @@
 .ic V(vmem)=0 V(xneuron.xref.vref)=0 V(REQ)=1.2 V(ACK)=1.2
 
 .options gmin=1e-13
+.options method=gear
 .control
 
 save V(I_lk) V(I_in) I(Viinprob)
-save V(ACK) V(REQ) V(vmem) V(xneuron.xref.vref)
-save V(xneuron.xfb.vmir) V(xneuron.vfb)
-save V(xneuron.xfb.nwell) V(xneuron.xfb.psub)
+save V(ACK) V(REQ) V(vmem) V(vmem_buf) V(vrefcap)
 save V(V_in) V(V_cm) V(xv2i.vhead)
+save V(xbuffer.vb)
 
 
 tran 50n 20m
