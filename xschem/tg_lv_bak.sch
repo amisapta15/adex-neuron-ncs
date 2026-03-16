@@ -21,6 +21,10 @@ N -330 -430 -290 -430 {lab=SEL}
 N -230 -500 -230 -480 {lab=VDD}
 N -230 -380 -230 -360 {lab=VSS}
 N -20 -350 40 -350 {lab=SEL}
+N 420 -650 420 -620 {lab=VDD}
+N 420 -560 420 -540 {lab=nwell}
+N 420 -510 420 -490 {lab=VSS}
+N 420 -430 420 -400 {lab=pwell}
 N 260 -720 260 -690 {lab=VDD}
 N 220 -630 260 -630 {lab=VDD}
 N 220 -690 220 -630 {lab=VDD}
@@ -29,10 +33,10 @@ N 220 -410 260 -410 {lab=VSS}
 N 220 -410 220 -350 {lab=VSS}
 N 220 -350 260 -350 {lab=VSS}
 N 260 -350 260 -310 {lab=VSS}
-N 260 -380 320 -380 {lab=VSS}
-N 260 -660 320 -660 {lab=VDD}
-N 40 -620 40 -580 {lab=VDD}
-N 40 -460 40 -430 {lab=VSS}
+N 260 -380 320 -380 {lab=pwell}
+N 260 -660 320 -660 {lab=nwell}
+N 40 -620 40 -580 {lab=nwell}
+N 40 -460 40 -430 {lab=pwell}
 C {ipin.sym} -90 -520 0 0 {name=p2 lab=IN}
 C {iopin.sym} -210 -620 2 0 {name=p1 lab=VDD}
 C {iopin.sym} -210 -580 2 0 {name=p3 lab=VSS}
@@ -80,9 +84,25 @@ m=2
 model=sg13_lv_nmos
 spiceprefix=X
 }
-C {lab_pin.sym} 40 -580 3 0 {name=p12 sig_type=std_logic lab=VDD}
-C {lab_pin.sym} 40 -460 1 0 {name=p20 sig_type=std_logic lab=VSS}
+C {sg13g2_pr/ntap1.sym} 420 -590 0 0 {name=R1
+model=ntap1
+spiceprefix=X
+w=12.64e-6
+l=5.11e-6
+}
+C {sg13g2_pr/ptap1.sym} 420 -460 0 0 {name=R2
+model=ptap1
+spiceprefix=X
+w=11.96e-6
+l=5.15e-6
+}
+C {lab_pin.sym} 420 -540 2 0 {name=p16 sig_type=std_logic lab=nwell}
+C {lab_pin.sym} 420 -650 2 0 {name=p17 sig_type=std_logic lab=VDD}
+C {lab_pin.sym} 420 -400 2 0 {name=p18 sig_type=std_logic lab=pwell}
+C {lab_pin.sym} 420 -510 2 0 {name=p19 sig_type=std_logic lab=VSS}
+C {lab_pin.sym} 40 -580 3 0 {name=p12 sig_type=std_logic lab=nwell}
+C {lab_pin.sym} 40 -460 1 0 {name=p20 sig_type=std_logic lab=pwell}
 C {lab_pin.sym} 260 -720 2 0 {name=p13 sig_type=std_logic lab=VDD}
 C {lab_pin.sym} 260 -310 2 0 {name=p22 sig_type=std_logic lab=VSS}
-C {lab_pin.sym} 320 -660 2 0 {name=p23 sig_type=std_logic lab=VDD}
-C {lab_pin.sym} 320 -380 2 0 {name=p24 sig_type=std_logic lab=VSS}
+C {lab_pin.sym} 320 -660 2 0 {name=p23 sig_type=std_logic lab=nwell}
+C {lab_pin.sym} 320 -380 2 0 {name=p24 sig_type=std_logic lab=pwell}
