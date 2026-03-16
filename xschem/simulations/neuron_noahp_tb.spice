@@ -2,7 +2,7 @@
 **.subckt neuron_noahp_tb
 Xneuron VDD I_in I_lk Vmem REQ ACK I_ref GND Vrefcap neuron_noahp
 Ilk VDD I_lk 4p
-Iin VDD I_in dc 0 ac 0 pulse(0 Iin_amp 0 20n 20n 1 1)
+Iin VDD GND dc 0 ac 0 pulse(0 Iin_amp 0 20n 20n 1 1)
 VDD1 VDD net1 1.2
 Iref VDD I_ref 70p
 Vidd net1 GND 0
@@ -13,7 +13,7 @@ Xinv4 VDD net2 ACK GND inv
 C2 I_lk GND 2p
 XM1 I_ref I_ref GND GND sg13_hv_nmos w=4u l=4u ng=2 m=4
 C1 I_ref GND 2p
-xv2i VDD V_bias V_cm V_in GND GND V2I_shift_final
+xv2i VDD V_bias V_cm V_in I_in GND V2I_shift_final
 XM3 V_bias V_bias VDD VDD sg13_hv_pmos w=4u l=1u ng=1 m=4
 C3 VDD V_bias 2p
 Ilk1 V_bias GND 4n
@@ -21,7 +21,7 @@ Vcm V_cm GND 0.4
 Vin V_in GND sine(0.4 50m 10)
 Viinprob net3 GND 0
 .save i(viinprob)
-xbuffer Vrefcap VDD V_bias vmem_buf GND buffer_final
+xbuffer Vmem VDD V_bias vmem_buf GND buffer_final
 C4 vmem_buf GND 20p
 **** begin user architecture code
 
@@ -42,7 +42,7 @@ save V(V_in) V(V_cm) V(xv2i.vhead)
 save V(xbuffer.vb)
 
 
-tran 50n 20m
+tran 50n 100m
 write neuron_noahp_tb.raw
 .endc
 

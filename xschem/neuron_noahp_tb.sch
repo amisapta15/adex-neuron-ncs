@@ -7,7 +7,7 @@ F {}
 E {}
 P 4 5 -60 -650 800 -650 800 -300 -60 -300 -60 -650 {}
 N 510 -600 510 -580 {lab=VDD}
-N 100 -520 100 -500 {lab=I_in}
+N 100 -520 100 -500 {lab=GND}
 N 510 -520 510 -480 {lab=I_lk}
 N -10 -550 -10 -530 {lab=#net1}
 N 680 -600 680 -580 {lab=VDD}
@@ -60,8 +60,7 @@ N 220 -460 220 -430 {lab=V_cm}
 N 100 -370 100 -350 {lab=GND}
 N 100 -460 100 -430 {lab=V_in}
 N -490 -170 -490 -140 {lab=V_bias}
-N -360 -70 -320 -70 {lab=GND}
-N -260 -70 -180 -70 {lab=I_in}
+N -360 -70 -180 -70 {lab=I_in}
 N 990 -140 990 -110 {lab=VDD}
 N 970 -140 970 -110 {lab=V_bias}
 N 990 30 990 60 {lab=GND}
@@ -95,7 +94,7 @@ save V(V_in) V(V_cm) V(xv2i.vhead)
 save V(xbuffer.vb)
 
 
-tran 50n 20m
+tran 50n 100m
 write neuron_noahp_tb.raw
 .endc
 
@@ -229,8 +228,7 @@ C {lab_wire.sym} 360 -470 0 0 {name=p13 sig_type=std_logic lab=V_bias}
 C {lab_wire.sym} -590 -100 0 0 {name=p14 sig_type=std_logic lab=V_in}
 C {lab_wire.sym} -590 -40 0 0 {name=p15 sig_type=std_logic lab=V_cm}
 C {vsource.sym} -280 -190 3 0 {name=Viinprob value=0 savecurrent=true}
-C {lab_wire.sym} 100 -500 0 0 {name=p16 sig_type=std_logic lab=I_in}
-C {gnd.sym} -320 -70 0 0 {name=l13 lab=GND}
+C {lab_wire.sym} 100 -500 0 0 {name=p16 sig_type=std_logic lab=GND}
 C {gnd.sym} -250 -190 0 0 {name=l14 lab=GND}
 C {buffer_final.sym} 970 220 0 0 {name=xbuffer}
 C {vdd.sym} 990 -140 0 0 {name=l15 lab=VDD}
