@@ -74,6 +74,8 @@ N 520 -100 520 -70 {lab=VDD}
 N 440 70 440 150 {lab=GND}
 N 350 70 440 70 {lab=GND}
 N 630 -30 630 110 {lab=ACK}
+N -40 40 -40 70 {lab=VDD}
+N -20 40 -20 70 {lab=#net3}
 C {neuron_noahp.sym} -30 0 0 0 {name=Xneuron}
 C {simulator_commands_shown.sym} 930 -1070 0 0 {name=example_Simulator1
 simulator=ngspice
@@ -247,3 +249,5 @@ C {vdd.sym} 520 -100 0 0 {name=l22 lab=VDD}
 C {lab_wire.sym} 210 -30 0 0 {name=p10 sig_type=std_logic lab=REQ}
 C {lab_wire.sym} 170 -50 0 0 {name=p12 sig_type=std_logic lab=Vmem}
 C {lab_wire.sym} 170 -10 0 0 {name=p20 sig_type=std_logic lab=Vrefcap}
+C {lab_wire.sym} -40 70 3 1 {name=p21 sig_type=std_logic lab=VDD}
+C {lab_wire.sym} -20 70 3 1 {name=p22 sig_type=std_logic lab=GND}

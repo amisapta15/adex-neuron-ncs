@@ -2,15 +2,15 @@
 .param temp=27
 .param Iin_amp=4n
 
-.ic V(vmem)=0 V(xneuron.xref.vref)=0 V(REQ)=1.2 V(ACK)=1.2
+.ic V(vmem)=0 V(vrefcap)=0 V(REQ)=1.2 V(ACK)=1.2
 
 .options gmin=1e-13
 .options method=gear
 .control
 
-save V(I_lk) V(I_in) I(Viinprob)
+save V(V_lk) V(V_in) V(V_ref)
 save V(ACK) V(REQ) V(vmem) V(vmem_buf) V(vrefcap)
-save V(V_in) V(V_cm) V(xv2i.vhead)
+save V(V_in) V(V_cm)
 save V(xbuffer.vb)
 
 

@@ -36,7 +36,7 @@ N 170 -70 170 -10 {lab=nwell}
 N 200 -70 200 -10 {lab=psub}
 N 580 290 580 310 {lab=Vrefcap}
 N 550 290 580 290 {lab=Vrefcap}
-N 580 370 580 430 {lab=#net2}
+N 580 370 580 430 {lab=GND}
 N 580 290 620 290 {lab=Vrefcap}
 N 400 160 400 200 {lab=VDD}
 N -490 -440 -460 -440 {lab=VDD}
@@ -48,7 +48,7 @@ N -490 -360 -460 -360 {lab=nwell}
 N -490 -320 -460 -320 {lab=psub}
 N 410 320 410 380 {lab=nwell}
 N 440 320 440 380 {lab=psub}
-N -100 -50 -100 10 {lab=#net2}
+N -100 -50 -100 10 {lab=GND}
 C {inv.sym} 480 -130 0 0 {name=Xinv1}
 C {inv.sym} 690 -130 0 0 {name=Xinv2}
 C {DPI.sym} -360 -130 0 0 {name=Xdpi1}
@@ -63,18 +63,8 @@ C {ipin.sym} -550 -150 0 0 {name=p6 lab=I_in
 }
 C {ipin.sym} -550 -110 0 0 {name=p8 lab=V_lk
 }
-C {capa.sym} -100 -80 0 0 {name=Cmem
-m=1
-value=1p
-footprint=1206
-device="ceramic capacitor"}
 C {opin.sym} -20 60 0 0 {name=p13 lab=Vmem}
 C {lab_wire.sym} 320 -130 0 0 {name=p14 sig_type=std_logic lab=Vfb}
-C {capa.sym} 580 340 0 0 {name=Cref
-m=1
-value=0.5p
-footprint=1206
-device="ceramic capacitor"}
 C {opin.sym} 620 290 0 0 {name=p7 lab=Vrefcap}
 C {lab_wire.sym} 400 190 3 1 {name=p11 sig_type=std_logic lab=VDD}
 C {lab_wire.sym} -360 -200 3 1 {name=p12 sig_type=std_logic lab=VDD}
@@ -96,3 +86,15 @@ C {lab_wire.sym} 440 340 3 0 {name=p22 sig_type=std_logic lab=psub}
 C {lab_wire.sym} 410 340 3 0 {name=p23 sig_type=std_logic lab=nwell}
 C {lab_wire.sym} 580 390 3 0 {name=p29 sig_type=std_logic lab=GND}
 C {lab_wire.sym} -100 -30 3 0 {name=p30 sig_type=std_logic lab=GND}
+C {sg13g2_pr/cap_cmim.sym} -100 -80 0 0 {name=Cmem
+model=cap_cmim
+w=44.4e-6
+l=15e-6
+m=1
+spiceprefix=X}
+C {sg13g2_pr/cap_cmim.sym} 580 340 0 0 {name=Cref
+model=cap_cmim
+w=22.1e-6
+l=15e-6
+m=1
+spiceprefix=X}

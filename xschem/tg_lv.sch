@@ -5,11 +5,11 @@ V {}
 S {}
 F {}
 E {}
-N -210 -620 -180 -620 {lab=VDD}
-N -210 -580 -180 -580 {lab=VSS}
+N -240 -680 -210 -680 {lab=VDD}
+N -240 -640 -210 -640 {lab=VSS}
 N 10 -520 10 -430 {lab=IN}
 N 70 -520 70 -430 {lab=OUT}
-N -210 -540 -180 -540 {lab=SEL}
+N -240 -600 -210 -600 {lab=SEL}
 N -90 -520 10 -520 {lab=IN}
 N 10 -620 10 -520 {lab=IN}
 N 70 -520 230 -520 {lab=OUT}
@@ -21,26 +21,26 @@ N -330 -430 -290 -430 {lab=SEL}
 N -230 -500 -230 -480 {lab=VDD}
 N -230 -380 -230 -360 {lab=VSS}
 N -20 -350 40 -350 {lab=SEL}
-N 260 -720 260 -690 {lab=VDD}
-N 220 -630 260 -630 {lab=VDD}
-N 220 -690 220 -630 {lab=VDD}
-N 220 -690 260 -690 {lab=VDD}
-N 220 -410 260 -410 {lab=VSS}
-N 220 -410 220 -350 {lab=VSS}
-N 220 -350 260 -350 {lab=VSS}
-N 260 -350 260 -310 {lab=VSS}
-N 260 -380 320 -380 {lab=VSS}
-N 260 -660 320 -660 {lab=VDD}
+N 200 -660 200 -630 {lab=VDD}
+N 160 -570 200 -570 {lab=VDD}
+N 160 -630 160 -570 {lab=VDD}
+N 160 -630 200 -630 {lab=VDD}
+N 150 -480 190 -480 {lab=VSS}
+N 150 -480 150 -420 {lab=VSS}
+N 150 -420 190 -420 {lab=VSS}
+N 190 -420 190 -380 {lab=VSS}
+N 190 -450 250 -450 {lab=VSS}
+N 200 -600 260 -600 {lab=VDD}
 N 40 -620 40 -580 {lab=VDD}
 N 40 -460 40 -430 {lab=VSS}
 C {ipin.sym} -90 -520 0 0 {name=p2 lab=IN}
-C {iopin.sym} -210 -620 2 0 {name=p1 lab=VDD}
-C {iopin.sym} -210 -580 2 0 {name=p3 lab=VSS}
+C {iopin.sym} -240 -680 2 0 {name=p1 lab=VDD}
+C {iopin.sym} -240 -640 2 0 {name=p3 lab=VSS}
 C {opin.sym} 230 -520 0 0 {name=p4 lab=OUT}
-C {lab_pin.sym} -180 -620 2 0 {name=p5 sig_type=std_logic lab=VDD}
-C {lab_pin.sym} -180 -580 2 0 {name=p6 sig_type=std_logic lab=VSS}
-C {ipin.sym} -210 -540 0 0 {name=p7 lab=SEL}
-C {lab_pin.sym} -180 -540 2 0 {name=p9 sig_type=std_logic lab=SEL}
+C {lab_pin.sym} -210 -680 2 0 {name=p5 sig_type=std_logic lab=VDD}
+C {lab_pin.sym} -210 -640 2 0 {name=p6 sig_type=std_logic lab=VSS}
+C {ipin.sym} -240 -600 0 0 {name=p7 lab=SEL}
+C {lab_pin.sym} -210 -600 2 0 {name=p9 sig_type=std_logic lab=SEL}
 C {lab_pin.sym} -20 -350 0 0 {name=p21 sig_type=std_logic lab=SEL}
 C {lab_pin.sym} -130 -430 2 0 {name=p11 sig_type=std_logic lab=selbar}
 C {inv_lv.sym} -240 -430 0 0 {name=x1}
@@ -64,7 +64,7 @@ m=1
 model=sg13_lv_pmos
 spiceprefix=X
 }
-C {sg13g2_pr/sg13_lv_pmos.sym} 240 -660 0 0 {name=Mdumm1
+C {sg13g2_pr/sg13_lv_pmos.sym} 180 -600 0 0 {name=Mdumm1
 l=0.15u
 w=1u
 ng=1
@@ -72,7 +72,7 @@ m=2
 model=sg13_lv_pmos
 spiceprefix=X
 }
-C {sg13g2_pr/sg13_lv_nmos.sym} 240 -380 0 0 {name=Mdumm2
+C {sg13g2_pr/sg13_lv_nmos.sym} 170 -450 0 0 {name=Mdumm2
 l=0.15u
 w=1u
 ng=1
@@ -82,7 +82,7 @@ spiceprefix=X
 }
 C {lab_pin.sym} 40 -580 3 0 {name=p12 sig_type=std_logic lab=VDD}
 C {lab_pin.sym} 40 -460 1 0 {name=p20 sig_type=std_logic lab=VSS}
-C {lab_pin.sym} 260 -720 2 0 {name=p13 sig_type=std_logic lab=VDD}
-C {lab_pin.sym} 260 -310 2 0 {name=p22 sig_type=std_logic lab=VSS}
-C {lab_pin.sym} 320 -660 2 0 {name=p23 sig_type=std_logic lab=VDD}
-C {lab_pin.sym} 320 -380 2 0 {name=p24 sig_type=std_logic lab=VSS}
+C {lab_pin.sym} 200 -660 2 0 {name=p13 sig_type=std_logic lab=VDD}
+C {lab_pin.sym} 190 -380 2 0 {name=p22 sig_type=std_logic lab=VSS}
+C {lab_pin.sym} 260 -600 2 0 {name=p23 sig_type=std_logic lab=VDD}
+C {lab_pin.sym} 250 -450 2 0 {name=p24 sig_type=std_logic lab=VSS}
