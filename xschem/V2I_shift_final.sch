@@ -39,10 +39,10 @@ N -120 30 -90 30 {lab=psub}
 N -90 60 -90 120 {lab=GND}
 N 110 30 140 30 {lab=psub}
 N 110 60 110 120 {lab=GND}
-N 270 -590 270 -530 {lab=GND}
-N 270 -470 270 -400 {lab=psub}
-N 410 -590 410 -530 {lab=VDD}
-N 410 -470 410 -400 {lab=nwell}
+N 270 -690 270 -630 {lab=GND}
+N 270 -570 270 -500 {lab=psub}
+N 410 -690 410 -630 {lab=VDD}
+N 410 -570 410 -500 {lab=nwell}
 N -750 -200 -750 -170 {lab=GND}
 N -700 -200 -670 -200 {lab=psub}
 N -700 -170 -700 -140 {lab=GND}
@@ -131,23 +131,11 @@ C {iopin.sym} 10 180 1 0 {name=p7 lab=GND}
 C {lab_wire.sym} 450 -300 0 0 {name=p1 sig_type=std_logic lab=Vbias}
 C {lab_wire.sym} 550 -100 0 0 {name=p12 sig_type=std_logic lab=out}
 C {lab_wire.sym} 550 -380 1 0 {name=p13 sig_type=std_logic lab=VDD}
-C {sg13g2_pr/ptap1.sym} 270 -500 0 0 {name=R1
-model=ptap1
-spiceprefix=X
-w=0.78e-6
-l=0.78e-6
-}
-C {sg13g2_pr/ntap1.sym} 410 -500 0 0 {name=R2
-model=ntap1
-spiceprefix=X
-w=0.78e-6
-l=0.78e-6
-}
 C {lab_wire.sym} 10 150 0 0 {name=p14 sig_type=std_logic lab=GND}
-C {lab_wire.sym} 270 -560 0 0 {name=p15 sig_type=std_logic lab=GND}
-C {lab_wire.sym} 410 -560 0 0 {name=p16 sig_type=std_logic lab=VDD}
-C {lab_wire.sym} 270 -410 0 0 {name=p18 sig_type=std_logic lab=psub}
-C {lab_wire.sym} 410 -410 0 0 {name=p19 sig_type=std_logic lab=nwell}
+C {lab_wire.sym} 270 -660 0 0 {name=p15 sig_type=std_logic lab=GND}
+C {lab_wire.sym} 410 -660 0 0 {name=p16 sig_type=std_logic lab=VDD}
+C {lab_wire.sym} 270 -510 0 0 {name=p18 sig_type=std_logic lab=psub}
+C {lab_wire.sym} 410 -510 0 0 {name=p19 sig_type=std_logic lab=nwell}
 C {sg13g2_pr/sg13_hv_pmos.sym} -710 -550 0 0 {name=MDBIAS
 l=1u
 w=4u
@@ -235,3 +223,21 @@ C {lab_wire.sym} -80 -240 2 0 {name=p4 sig_type=std_logic lab=nwell}
 C {lab_wire.sym} 100 -240 2 1 {name=p9 sig_type=std_logic lab=nwell}
 C {lab_wire.sym} 50 -520 2 0 {name=p20 sig_type=std_logic lab=nwell}
 C {lab_wire.sym} 590 -340 2 0 {name=p21 sig_type=std_logic lab=nwell}
+C {sg13g2_pr/ptap1_ring.sym} 270 -600 0 0 {name=R3
+model=ptap1
+spiceprefix=X
+w=18.5e-6
+l=6.3e-6
+rw=0.3e-6
+}
+C {iopin.sym} 270 -500 1 0 {name=p32 lab=psub
+}
+C {iopin.sym} 410 -500 1 0 {name=p34 lab=nwell
+}
+C {sg13g2_pr/ntap1_ring.sym} 410 -600 0 0 {name=R1
+model=ntap1
+spiceprefix=X
+w=19.5e-6
+l=12.7e-6
+rw=0.3e-6
+}

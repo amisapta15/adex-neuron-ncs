@@ -25,6 +25,8 @@ N -10 70 -10 90 {lab=psub}
 N -690 -260 -660 -260 {lab=nwell}
 N -690 -230 -660 -230 {lab=psub}
 N -220 40 -170 40 {lab=ack_VABI}
+N -440 30 -440 50 {lab=nwell}
+N -420 30 -420 50 {lab=psub}
 C {neuron_noahp.sym} -20 30 0 0 {name=Xneuron}
 C {lab_wire.sym} -10 -90 3 1 {name=p6 sig_type=std_logic lab=GND}
 C {V2I_shift_final.sym} -480 100 0 0 {name=xv2i}
@@ -47,3 +49,5 @@ C {opin.sym} 180 20 0 0 {name=p12 lab=refcap_VTO}
 C {ipin.sym} -220 0 0 0 {name=p4 lab=tau_VNI}
 C {ipin.sym} -220 20 0 0 {name=p1 lab=ref_VNI}
 C {ipin.sym} -220 40 0 0 {name=p9 lab=ack_VABI}
+C {lab_wire.sym} -420 50 3 0 {name=p20 sig_type=std_logic lab=psub}
+C {lab_wire.sym} -440 50 3 0 {name=p21 sig_type=std_logic lab=nwell}
