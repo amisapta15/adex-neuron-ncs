@@ -29,7 +29,7 @@ N -440 30 -440 50 {lab=nwell}
 N -420 30 -420 50 {lab=psub}
 C {neuron_noahp.sym} -20 30 0 0 {name=Xneuron}
 C {lab_wire.sym} -10 -90 3 1 {name=p6 sig_type=std_logic lab=GND}
-C {V2I_shift_final.sym} -480 100 0 0 {name=xv2i}
+C {V2I.sym} -480 100 0 0 {name=xv2i}
 C {lab_wire.sym} -200 -40 0 0 {name=p2 sig_type=std_logic lab=I_in}
 C {ipin.sym} -610 -70 0 0 {name=p3 lab=in_VI}
 C {ipin.sym} -610 -10 0 0 {name=p5 lab=cm_VI}

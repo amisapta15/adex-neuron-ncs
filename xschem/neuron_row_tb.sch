@@ -208,7 +208,7 @@ C {gnd.sym} 100 -350 0 0 {name=l12 lab=GND}
 C {lab_wire.sym} 100 -460 0 0 {name=p8 sig_type=std_logic lab=V_in}
 C {lab_wire.sym} 360 -470 0 0 {name=p13 sig_type=std_logic lab=V_bias}
 C {lab_wire.sym} 100 -500 0 0 {name=p16 sig_type=std_logic lab=GND}
-C {buffer_final.sym} 960 240 0 0 {name=xbuffer}
+C {analog_buffer.sym} 960 240 0 0 {name=xbuffer}
 C {vdd.sym} 980 -120 0 0 {name=l15 lab=VDD}
 C {lab_wire.sym} 960 -120 0 0 {name=p17 sig_type=std_logic lab=V_bias}
 C {gnd.sym} 980 80 0 0 {name=l17 lab=GND}

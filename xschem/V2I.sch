@@ -116,7 +116,6 @@ spiceprefix=X
 }
 C {lab_wire.sym} 330 -100 0 0 {name=p6 sig_type=std_logic lab=out}
 C {opin.sym} 350 -100 0 0 {name=p8 lab=out}
-C {lab_wire.sym} -80 -480 0 0 {name=p11 sig_type=std_logic lab=Vbias}
 C {sg13g2_pr/sg13_hv_pmos.sym} 130 -240 0 1 {name=MdiffINN
 l=1u
 w=4u

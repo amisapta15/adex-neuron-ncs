@@ -36,7 +36,7 @@ N 40 -460 40 -430 {lab=VSS}
 C {ipin.sym} -90 -520 0 0 {name=p2 lab=IN}
 C {iopin.sym} -240 -680 2 0 {name=p1 lab=VDD}
 C {iopin.sym} -240 -640 2 0 {name=p3 lab=VSS}
-C {opin.sym} 230 -520 0 0 {name=p4 lab=OUT}
+C {iopin.sym} 230 -520 0 0 {name=p4 lab=OUT}
 C {lab_pin.sym} -210 -680 2 0 {name=p5 sig_type=std_logic lab=VDD}
 C {lab_pin.sym} -210 -640 2 0 {name=p6 sig_type=std_logic lab=VSS}
 C {ipin.sym} -240 -600 0 0 {name=p7 lab=SEL}

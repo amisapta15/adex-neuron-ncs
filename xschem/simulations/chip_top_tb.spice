@@ -1,8 +1,140 @@
+** sch_path: /foss/designs/adex_neuron/ttihp26a-adex-neuron-ncs/xschem/chip_top_tb.sch
+**.subckt chip_top_tb
+Ilk VDD NN_tau_VNI 4p
+VDD1 VDD net1 1.2
+Iref VDD NN_ref_VNI 100p
+Vidd net1 GND 0
+.save i(vidd)
+XM27 NN_tau_VNI NN_tau_VNI GND GND sg13_hv_nmos w=4u l=4u ng=2 m=4
+C2 NN_tau_VNI GND 100p
+XM1 NN_ref_VNI NN_ref_VNI GND GND sg13_hv_nmos w=4u l=4u ng=2 m=4
+C1 NN_ref_VNI GND 100p
+XM3 V2I_bias_VPI V2I_bias_VPI VDD VDD sg13_hv_pmos w=4u l=1u ng=1 m=4
+C3 VDD V2I_bias_VPI 2p
+Ibias V2I_bias_VPI GND 6n
+Vcm V2I_cm_VI GND 0.4
+Vin V2I_in_VI GND sine(0.4 50m 10)
+C4 BUF_prob_VX1O GND 20p
+xinv1[10] VDD VDD NN_req_VA[10] NN_req_VABO[10] GND GND inv
+xinv1[9] VDD VDD NN_req_VA[9] NN_req_VABO[9] GND GND inv
+xinv1[8] VDD VDD NN_req_VA[8] NN_req_VABO[8] GND GND inv
+xinv1[7] VDD VDD NN_req_VA[7] NN_req_VABO[7] GND GND inv
+xinv1[6] VDD VDD NN_req_VA[6] NN_req_VABO[6] GND GND inv
+xinv1[5] VDD VDD NN_req_VA[5] NN_req_VABO[5] GND GND inv
+xinv1[4] VDD VDD NN_req_VA[4] NN_req_VABO[4] GND GND inv
+xinv1[3] VDD VDD NN_req_VA[3] NN_req_VABO[3] GND GND inv
+xinv1[2] VDD VDD NN_req_VA[2] NN_req_VABO[2] GND GND inv
+xinv1[1] VDD VDD NN_req_VA[1] NN_req_VABO[1] GND GND inv
+xinv1[0] VDD VDD NN_req_VA[0] NN_req_VABO[0] GND GND inv
+xinv2[10] VDD VDD NN_ack_VABI[10] NN_req_VA[10] GND GND inv
+xinv2[9] VDD VDD NN_ack_VABI[9] NN_req_VA[9] GND GND inv
+xinv2[8] VDD VDD NN_ack_VABI[8] NN_req_VA[8] GND GND inv
+xinv2[7] VDD VDD NN_ack_VABI[7] NN_req_VA[7] GND GND inv
+xinv2[6] VDD VDD NN_ack_VABI[6] NN_req_VA[6] GND GND inv
+xinv2[5] VDD VDD NN_ack_VABI[5] NN_req_VA[5] GND GND inv
+xinv2[4] VDD VDD NN_ack_VABI[4] NN_req_VA[4] GND GND inv
+xinv2[3] VDD VDD NN_ack_VABI[3] NN_req_VA[3] GND GND inv
+xinv2[2] VDD VDD NN_ack_VABI[2] NN_req_VA[2] GND GND inv
+xinv2[1] VDD VDD NN_ack_VABI[1] NN_req_VA[1] GND GND inv
+xinv2[0] VDD VDD NN_ack_VABI[0] NN_req_VA[0] GND GND inv
+xchip NN_ack_VABI[7] NN_ack_VABI[6] NN_ack_VABI[5] NN_ack_VABI[4] NN_ack_VABI[3] NN_ack_VABI[2] NN_ack_VABI[1] NN_ack_VABI[0]
++ V2I_in_VI V2I_bias_VPI V2I_cm_VI NN_tau_VNI NN_ref_VNI BUF_prob_VX1O VDD NN_req_VABO[7] NN_req_VABO[6] NN_req_VABO[5] NN_req_VABO[4]
++ NN_req_VABO[3] NN_req_VABO[2] NN_req_VABO[1] NN_req_VABO[0] GND GND GND GND NN_ack_VABI[10] NN_ack_VABI[9] NN_ack_VABI[8] MUX_sel1_VSI
++ MUX_sel0_VSI NN_req_VABO[10] NN_req_VABO[9] NN_req_VABO[8] uio_out[4] uio_out[3] uio_out[2] uio_out[1] uio_out[0] IO_config_VS[7]
++ IO_config_VS[6] IO_config_VS[5] IO_config_VS[4] IO_config_VS[3] IO_config_VS[2] IO_config_VS[1] IO_config_VS[0] chip_top
+* noconn IO_config_VS[7:0]
+* noconn uio_out[4:0]
+Vsel1 MUX_sel1_VSI GND 0
+Vsel0 MUX_sel0_VSI GND 1.2
+**** begin user architecture code
+
+
+
+.param temp=27
+
+.ic V(NN_req_VABO[10])=1.2 V(NN_req_VABO[9])=1.2 V(NN_req_VABO[8])=1.2
++V(NN_req_VABO[7])=1.2 V(NN_req_VABO[6])=1.2 V(NN_req_VABO[5])=1.2
++V(NN_req_VABO[4])=1.2 V(NN_req_VABO[3])=1.2 V(NN_req_VABO[2])=1.2
++V(NN_req_VABO[1])=1.2 V(NN_req_VABO[0])=1.2
+.ic V(NN_ack_VABI[10])=1.2 V(NN_ack_VABI[9])=1.2 V(NN_ack_VABI[8])=1.2
++V(NN_ack_VABI[7])=1.2 V(NN_ack_VABI[6])=1.2 V(NN_ack_VABI[5])=1.2
++V(NN_ack_VABI[4])=1.2 V(NN_ack_VABI[3])=1.2 V(NN_ack_VABI[2])=1.2
++V(NN_ack_VABI[1])=1.2 V(NN_ack_VABI[0])=1.2
+.ic V(xchip.NN_mem_VNT[10])=0 V(xchip.NN_mem_VNT[9])=0 V(xchip.NN_mem_VNT[8])=0
++V(xchip.NN_mem_VNT[7])=0 V(xchip.NN_mem_VNT[6])=0 V(xchip.NN_mem_VNT[5])=0
++V(xchip.NN_mem_VNT[4])=0 V(xchip.NN_mem_VNT[3])=0 V(xchip.NN_mem_VNT[2])=0
++V(xchip.NN_mem_VNT[1])=0 V(xchip.NN_mem_VNT[0])=0
+.ic V(xchip.NN_refcap_VT[10])=0 V(xchip.NN_refcap_VT[9])=0 V(xchip.NN_refcap_VT[8])=0
++V(xchip.NN_refcap_VT[7])=0 V(xchip.NN_refcap_VT[6])=0 V(xchip.NN_refcap_VT[5])=0
++V(xchip.NN_refcap_VT[4])=0 V(xchip.NN_refcap_VT[3])=0 V(xchip.NN_refcap_VT[2])=0
++V(xchip.NN_refcap_VT[1])=0 V(xchip.NN_refcap_VT[0])=0
+
+.options gmin=1e-13
+.options method=gear
+.control
+
+save V(NN_req_VABO[10]) V(NN_req_VABO[9]) V(NN_req_VABO[8])
++V(NN_req_VABO[7]) V(NN_req_VABO[6]) V(NN_req_VABO[5])
++V(NN_req_VABO[4]) V(NN_req_VABO[3]) V(NN_req_VABO[2])
++V(NN_req_VABO[1]) V(NN_req_VABO[0])
+save V(NN_ack_VABI[10]) V(NN_ack_VABI[9]) V(NN_ack_VABI[8])
++V(NN_ack_VABI[7]) V(NN_ack_VABI[6]) V(NN_ack_VABI[5])
++V(NN_ack_VABI[4]) V(NN_ack_VABI[3]) V(NN_ack_VABI[2])
++V(NN_ack_VABI[1]) V(NN_ack_VABI[0])
+save V(BUF_prob_VX1O) V(xchip.buf2mux_VTX1[1]) V(xchip.buf2mux_VTX1[0])
+save V(xchip.NN_mem_VNT[10]) V(xchip.NN_mem_VNT[9]) V(xchip.NN_mem_VNT[8])
++V(xchip.NN_mem_VNT[7]) V(xchip.NN_mem_VNT[6]) V(xchip.NN_mem_VNT[5])
++V(xchip.NN_mem_VNT[4]) V(xchip.NN_mem_VNT[3]) V(xchip.NN_mem_VNT[2])
++V(xchip.NN_mem_VNT[1]) V(xchip.NN_mem_VNT[0])
+save V(xchip.NN_refcap_VT[10]) V(xchip.NN_refcap_VT[9]) V(xchip.NN_refcap_VT[8])
++V(xchip.NN_refcap_VT[7]) V(xchip.NN_refcap_VT[6]) V(xchip.NN_refcap_VT[5])
++V(xchip.NN_refcap_VT[4]) V(xchip.NN_refcap_VT[3]) V(xchip.NN_refcap_VT[2])
++V(xchip.NN_refcap_VT[1]) V(xchip.NN_refcap_VT[0])
+save V(IO_config_VS[7]) V(IO_config_VS[6]) V(IO_config_VS[5]) V(IO_config_VS[4])
++V(IO_config_VS[3]) V(IO_config_VS[2]) V(IO_config_VS[1]) V(IO_config_VS[0])
+
+
+tran 50n 100m
+write chip_top_tb.raw
+.endc
+
+
+
+
+
+
+.lib cornerMOSlv.lib mos_tt
+.lib cornerMOShv.lib mos_tt
+.lib cornerCAP.lib cap_typ
+.lib cornerRES.lib res_typ
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  inv.sym # of pins=6
+** sym_path: /foss/designs/adex_neuron/ttihp26a-adex-neuron-ncs/xschem/inv.sym
+** sch_path: /foss/designs/adex_neuron/ttihp26a-adex-neuron-ncs/xschem/inv.sch
+.subckt inv VDD nwell out in psub GND
+*.ipin in
+*.iopin GND
+*.opin out
+*.iopin VDD
+*.iopin nwell
+*.iopin psub
+XM1 out in VDD nwell sg13_hv_pmos w=4u l=0.5u ng=1
+XM2 out in GND psub sg13_hv_nmos w=4u l=0.5u ng=1
+XR1 GND psub ptap1 R=95.61 w=2.75e-6 l=1e-6
+XR2 VDD nwell ntap1 R=95.61 w=2.75e-6 l=1e-6
+.ends
+
+
+* expanding   symbol:  chip_top.sym # of pins=8
+** sym_path: /foss/designs/adex_neuron/ttihp26a-adex-neuron-ncs/xschem/chip_top.sym
 ** sch_path: /foss/designs/adex_neuron/ttihp26a-adex-neuron-ncs/xschem/chip_top.sch
-**.subckt chip_top ui_in[7],ui_in[6],ui_in[5],ui_in[4],ui_in[3],ui_in[2],ui_in[1],ui_in[0] ua[5],ua[4],ua[3],ua[2],ua[1],ua[0]
-*+ VDPWR uo_out[7],uo_out[6],uo_out[5],uo_out[4],uo_out[3],uo_out[2],uo_out[1],uo_out[0] VGND
-*+ uio_in[7],uio_in[6],uio_in[5],uio_in[4],uio_in[3],uio_in[2],uio_in[1],uio_in[0] uio_out[7],uio_out[6],uio_out[5],uio_out[4],uio_out[3],uio_out[2],uio_out[1],uio_out[0]
-*+ uio_oe[7],uio_oe[6],uio_oe[5],uio_oe[4],uio_oe[3],uio_oe[2],uio_oe[1],uio_oe[0]
+.subckt chip_top ui_in[7] ui_in[6] ui_in[5] ui_in[4] ui_in[3] ui_in[2] ui_in[1] ui_in[0] ua[5] ua[4] ua[3] ua[2] ua[1] ua[0] VDPWR
++ uo_out[7] uo_out[6] uo_out[5] uo_out[4] uo_out[3] uo_out[2] uo_out[1] uo_out[0] VGND uio_in[7] uio_in[6] uio_in[5] uio_in[4] uio_in[3]
++ uio_in[2] uio_in[1] uio_in[0] uio_out[7] uio_out[6] uio_out[5] uio_out[4] uio_out[3] uio_out[2] uio_out[1] uio_out[0] uio_oe[7] uio_oe[6]
++ uio_oe[5] uio_oe[4] uio_oe[3] uio_oe[2] uio_oe[1] uio_oe[0]
 *.iopin VDPWR
 *.iopin VGND
 *.ipin ui_in[7],ui_in[6],ui_in[5],ui_in[4],ui_in[3],ui_in[2],ui_in[1],ui_in[0]
@@ -41,7 +173,8 @@ xoelo1[0] VDPWR VGND uio_out[0] sg13g2_tielo
 * noconn uio_in[7:5]
 * noconn NN_mem_VNT[10:1]
 * noconn NN_refcap_VT[10:1]
-**.ends
+.ends
+
 
 * expanding   symbol:  neuron_row.sym # of pins=13
 ** sym_path: /foss/designs/adex_neuron/ttihp26a-adex-neuron-ncs/xschem/neuron_row.sym
@@ -209,23 +342,6 @@ XMdumm2 VSS VSS VSS VSS sg13_lv_nmos w=1u l=0.15u ng=1 m=2
 .ends
 
 
-* expanding   symbol:  inv.sym # of pins=6
-** sym_path: /foss/designs/adex_neuron/ttihp26a-adex-neuron-ncs/xschem/inv.sym
-** sch_path: /foss/designs/adex_neuron/ttihp26a-adex-neuron-ncs/xschem/inv.sch
-.subckt inv VDD nwell out in psub GND
-*.ipin in
-*.iopin GND
-*.opin out
-*.iopin VDD
-*.iopin nwell
-*.iopin psub
-XM1 out in VDD nwell sg13_hv_pmos w=4u l=0.5u ng=1
-XM2 out in GND psub sg13_hv_nmos w=4u l=0.5u ng=1
-XR1 GND psub ptap1 R=95.61 w=2.75e-6 l=1e-6
-XR2 VDD nwell ntap1 R=95.61 w=2.75e-6 l=1e-6
-.ends
-
-
 * expanding   symbol:  DPI.sym # of pins=7
 ** sym_path: /foss/designs/adex_neuron/ttihp26a-adex-neuron-ncs/xschem/DPI.sym
 ** sch_path: /foss/designs/adex_neuron/ttihp26a-adex-neuron-ncs/xschem/DPI.sch
@@ -319,4 +435,6 @@ XMdumm1 VDD VDD VDD VDD sg13_lv_pmos w=1u l=0.15u ng=1 m=2
 XMdumm2 VSS VSS VSS VSS sg13_lv_nmos w=1u l=0.15u ng=1 m=2
 .ends
 
+.GLOBAL GND
+.GLOBAL VDD
 .end
