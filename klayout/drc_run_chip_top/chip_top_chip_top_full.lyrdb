@@ -3215,30 +3215,7 @@
    <references>
    </references>
   </cell>
-  <cell>
-   <name>analog_buffer</name>
-   <variant />
-   <layout-name>analog_buffer</layout-name>
-   <references>
-    <ref>
-     <parent>chip_top</parent>
-     <trans>r0 *1 184.76,21.95</trans>
-    </ref>
-   </references>
-  </cell>
  </cells>
  <items>
-  <item>
-   <tags />
-   <category>'M1.b'</category>
-   <cell>analog_buffer</cell>
-   <visited>false</visited>
-   <multiplicity>1</multiplicity>
-   <comment />
-   <image />
-   <values>
-    <value>edge-pair: (20.68,45.45;21.18,45.45)|(21.17,45.525;20.655,45.525)</value>
-   </values>
-  </item>
  </items>
 </report-database>
