@@ -1,0 +1,25 @@
+{
+    "technology": "",
+    "statements": [
+        {
+            "lib_name": "neuron_row",
+            "lib_path": "neuron_row.klay.gds"
+        },
+        {
+            "lib_name": "mux",
+            "lib_path": "mux.gds"
+        },
+        {
+            "lib_name": "sg13g2_stdcell",
+            "lib_path": "/foss/designs/adex_neuron/ttihp26a-adex-neuron-ncs/stdcell/sg13g2_stdcell.gds"
+        },
+        {
+            "lib_name": "analog_buffer",
+            "lib_path": "analog_buffer.gds"
+        },
+        {
+            "lib_name": "tt_empty",
+            "lib_path": "tt_empty.gds"
+        }
+    ]
+}
