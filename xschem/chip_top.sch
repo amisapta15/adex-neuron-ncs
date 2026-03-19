@@ -65,6 +65,8 @@ N 530 -240 570 -240 {lab=NN_refcap_VT[10:1]}
 N 140 150 140 190 {lab=VDPWR}
 N 160 150 160 190 {lab=VGND}
 N -40 80 10 80 {lab=NN_refcap_VT[0],NN_mem_VNT[0]}
+N -380 -440 -380 -410 {lab=VGND}
+N -380 -350 -380 -320 {lab=ua[5:1]}
 C {neuron_row.sym} 40 -270 0 0 {name=xrow[10:0]}
 C {lab_wire.sym} 30 -340 3 1 {name=p23 sig_type=std_logic lab=VGND}
 C {lab_wire.sym} -110 -280 0 0 {name=p24 sig_type=std_logic lab=ua[5]}
@@ -121,3 +123,11 @@ C {lab_wire.sym} 560 -240 0 0 {name=p44 sig_type=std_logic lab=NN_refcap_VT[10:1
 C {lab_wire.sym} 160 150 3 0 {name=p45 sig_type=std_logic lab=VGND}
 C {lab_wire.sym} 140 150 3 0 {name=p46 sig_type=std_logic lab=VDPWR}
 C {lab_wire.sym} 10 80 0 0 {name=p47 sig_type=std_logic lab=NN_refcap_VT[0],NN_mem_VNT[0]}
+C {sg13g2_pr/cap_cmim.sym} -380 -380 0 0 {name=Cadecap[3:0]
+model=cap_cmim
+w=75e-6
+l=75e-6
+m=1
+spiceprefix=X}
+C {lab_wire.sym} -380 -420 0 0 {name=p48 sig_type=std_logic lab=VGND}
+C {lab_wire.sym} -380 -340 2 1 {name=p49 sig_type=std_logic lab=ua[4:1]}
