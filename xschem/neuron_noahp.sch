@@ -88,13 +88,13 @@ C {lab_wire.sym} 440 340 3 0 {name=p22 sig_type=std_logic lab=psub}
 C {lab_wire.sym} 410 340 3 0 {name=p23 sig_type=std_logic lab=nwell}
 C {lab_wire.sym} 580 390 3 0 {name=p29 sig_type=std_logic lab=GND}
 C {lab_wire.sym} -100 -30 3 0 {name=p30 sig_type=std_logic lab=GND}
-C {sg13g2_pr/cap_cmim.sym} -100 -80 0 0 {name=Cmem
+C {sg13g2_pr/cap_cmim.sym} -100 -80 2 0 {name=Cmem
 model=cap_cmim
 w=44.4e-6
 l=15e-6
 m=1
 spiceprefix=X}
-C {sg13g2_pr/cap_cmim.sym} 580 340 0 0 {name=Cref
+C {sg13g2_pr/cap_cmim.sym} 580 340 2 0 {name=Cref
 model=cap_cmim
 w=22.1e-6
 l=15e-6

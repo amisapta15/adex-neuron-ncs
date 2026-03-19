@@ -30,8 +30,25 @@ N -50 -110 -50 -70 {lab=GND}
 N -80 -140 -50 -140 {lab=psub}
 N -500 -290 -500 -70 {lab=GND}
 N -530 -320 -500 -320 {lab=psub}
-N -700 -500 -660 -500 {lab=nwell}
-N -700 -470 -660 -470 {lab=VDD}
+N -980 -590 -980 -570 {lab=GND}
+N -1010 -620 -980 -620 {lab=psub}
+N -980 -590 -940 -590 {lab=GND}
+N -940 -650 -940 -590 {lab=GND}
+N -980 -650 -940 -650 {lab=GND}
+N -840 -590 -840 -570 {lab=GND}
+N -870 -620 -840 -620 {lab=psub}
+N -840 -590 -800 -590 {lab=GND}
+N -800 -650 -800 -590 {lab=GND}
+N -840 -650 -800 -650 {lab=GND}
+N -700 -590 -700 -570 {lab=GND}
+N -730 -620 -700 -620 {lab=psub}
+N -700 -590 -660 -590 {lab=GND}
+N -660 -650 -660 -590 {lab=GND}
+N -700 -650 -660 -650 {lab=GND}
+N -670 -370 -670 -340 {lab=GND}
+N -670 -280 -670 -250 {lab=psub}
+N -840 -360 -840 -330 {lab=VDD}
+N -840 -270 -840 -240 {lab=nwell}
 C {sg13g2_pr/sg13_hv_pmos.sym} -30 -360 0 1 {name=M10
 l=0.5u
 w=1u
@@ -84,5 +101,52 @@ C {lab_wire.sym} -60 -360 0 0 {name=p9 sig_type=std_logic lab=nwell}
 C {lab_wire.sym} -60 -280 0 0 {name=p10 sig_type=std_logic lab=psub}
 C {lab_wire.sym} -60 -140 0 0 {name=p11 sig_type=std_logic lab=psub}
 C {lab_wire.sym} -510 -320 0 0 {name=p12 sig_type=std_logic lab=psub}
-C {iopin.sym} -700 -500 2 0 {name=p13 lab=nwell}
-C {iopin.sym} -700 -470 2 0 {name=p14 lab=psub}
+C {sg13g2_pr/sg13_hv_nmos.sym} -960 -620 0 1 {name=Mdum3
+l=4u
+w=2u
+ng=4
+m=2
+model=sg13_hv_nmos
+spiceprefix=X
+}
+C {lab_wire.sym} -1010 -620 0 0 {name=p18 sig_type=std_logic lab=psub}
+C {lab_wire.sym} -980 -570 0 0 {name=p19 sig_type=std_logic lab=GND}
+C {sg13g2_pr/sg13_hv_nmos.sym} -820 -620 0 1 {name=Mdum4
+l=3u
+w=0.5u
+ng=1
+m=4
+model=sg13_hv_nmos
+spiceprefix=X
+}
+C {lab_wire.sym} -870 -620 0 0 {name=p20 sig_type=std_logic lab=psub}
+C {lab_wire.sym} -840 -570 0 0 {name=p21 sig_type=std_logic lab=GND}
+C {sg13g2_pr/sg13_hv_nmos.sym} -680 -620 0 1 {name=Mdum5
+l=3u
+w=2u
+ng=1
+m=4
+model=sg13_hv_nmos
+spiceprefix=X
+}
+C {lab_wire.sym} -730 -620 0 0 {name=p22 sig_type=std_logic lab=psub}
+C {lab_wire.sym} -700 -570 0 0 {name=p23 sig_type=std_logic lab=GND}
+C {iopin.sym} -670 -250 3 1 {name=p17 lab=psub}
+C {sg13g2_pr/ptap1_ring.sym} -670 -310 0 0 {name=R4
+model=ptap1
+spiceprefix=X
+w=25.7e-6
+l=9e-6
+rw=0.3e-6
+}
+C {lab_wire.sym} -670 -370 0 0 {name=p24 sig_type=std_logic lab=GND}
+C {sg13g2_pr/ntap1_ring.sym} -840 -300 0 0 {name=R1
+model=ntap1
+spiceprefix=X
+w=24e-6
+l=7e-6
+rw=0.3e-6
+}
+C {lab_wire.sym} -840 -360 0 0 {name=p33 sig_type=std_logic lab=VDD}
+C {iopin.sym} -840 -240 3 1 {name=p37 lab=nwell
+}
