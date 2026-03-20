@@ -94,10 +94,8 @@ N -2020 -1990 -2010 -1990 {lab=VDD}
 N -2020 -2020 -2020 -1990 {lab=VDD}
 N -2020 -2020 -1970 -2020 {lab=VDD}
 N -1970 -1960 -1970 -1940 {lab=V_mem}
-N -2290 -1700 -2290 -1670 {lab=VDD}
 N -2290 -1610 -2290 -1580 {lab=nwell}
 N -2120 -1610 -2120 -1580 {lab=psub}
-N -2120 -1700 -2120 -1670 {lab=GND}
 C {sg13g2_pr/sg13_hv_pmos.sym} -1490 -1760 0 0 {name=Mmirr
 l=2u
 w=4u
@@ -270,22 +268,6 @@ spiceprefix=X
 C {lab_wire.sym} -1950 -1990 0 1 {name=p30 sig_type=std_logic lab=nwell}
 C {lab_wire.sym} -1970 -2040 0 0 {name=p31 sig_type=std_logic lab=VDD}
 C {lab_wire.sym} -1970 -1940 0 0 {name=p32 sig_type=std_logic lab=V_mem}
-C {sg13g2_pr/ntap1_ring.sym} -2290 -1640 0 0 {name=R1
-model=ntap1
-spiceprefix=X
-w=16e-6
-l=10.5e-6
-rw=0.3e-6
-}
-C {lab_wire.sym} -2290 -1700 0 0 {name=p33 sig_type=std_logic lab=VDD}
-C {sg13g2_pr/ptap1_ring.sym} -2120 -1640 0 0 {name=R2
-model=ptap1
-spiceprefix=X
-w=16e-6
-l=8.2e-6
-rw=0.3e-6
-}
-C {lab_wire.sym} -2120 -1700 0 0 {name=p36 sig_type=std_logic lab=GND}
 C {iopin.sym} -2290 -1580 3 1 {name=p37 lab=nwell
 }
 C {iopin.sym} -2120 -1580 3 1 {name=p38 lab=psub

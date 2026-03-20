@@ -34,10 +34,6 @@ N 60 120 60 140 {lab=GND}
 N 60 120 160 120 {lab=GND}
 N -40 60 -40 120 {lab=GND}
 N 160 60 160 120 {lab=GND}
-N 420 -700 420 -640 {lab=GND}
-N 420 -580 420 -510 {lab=psub}
-N 560 -700 560 -640 {lab=VDD}
-N 560 -580 560 -510 {lab=nwell}
 N -690 -350 -690 -320 {lab=GND}
 N -640 -350 -610 -350 {lab=psub}
 N -640 -320 -640 -290 {lab=GND}
@@ -74,12 +70,6 @@ N -490 -380 -440 -380 {lab=GND}
 N -630 -670 -630 -660 {lab=VDD}
 N -680 -700 -680 -660 {lab=VDD}
 N -680 -660 -630 -660 {lab=VDD}
-N 680 -700 680 -640 {lab=VDD}
-N 680 -580 680 -510 {lab=nwell}
-N 810 -700 810 -640 {lab=VDD}
-N 810 -580 810 -510 {lab=nwell}
-N 940 -700 940 -640 {lab=VDD}
-N 940 -580 940 -510 {lab=nwell}
 C {sg13g2_pr/sg13_hv_pmos.sym} -60 -240 0 0 {name=M2
 l=1u
 w=4u
@@ -128,16 +118,6 @@ C {lab_wire.sym} 260 -240 0 0 {name=p7 sig_type=std_logic lab=out}
 C {iopin.sym} 60 -760 3 0 {name=p10 lab=VDD}
 C {iopin.sym} 60 140 1 0 {name=p1 lab=GND}
 C {ipin.sym} -190 -620 0 0 {name=p5 lab=Vbias}
-C {sg13g2_pr/ntap1.sym} 560 -610 0 0 {name=R2
-model=ntap1
-spiceprefix=X
-w=0.8e-6
-l=19.7e-6
-}
-C {lab_wire.sym} 420 -670 0 0 {name=p15 sig_type=std_logic lab=GND}
-C {lab_wire.sym} 560 -670 0 0 {name=p16 sig_type=std_logic lab=VDD}
-C {lab_wire.sym} 420 -520 0 0 {name=p18 sig_type=std_logic lab=psub}
-C {lab_wire.sym} 560 -520 0 0 {name=p19 sig_type=std_logic lab=nwell}
 C {sg13g2_pr/sg13_hv_pmos.sym} -650 -700 0 0 {name=MDBIAS
 l=1u
 w=4u
@@ -197,36 +177,5 @@ C {lab_wire.sym} -50 30 0 0 {name=p9 sig_type=std_logic lab=psub}
 C {lab_wire.sym} 170 30 2 0 {name=p13 sig_type=std_logic lab=psub}
 C {lab_wire.sym} 40 -460 0 0 {name=p12 sig_type=std_logic lab=Vb}
 C {lab_wire.sym} 30 -20 0 0 {name=p14 sig_type=std_logic lab=Vm}
-C {lab_wire.sym} 680 -670 0 0 {name=p17 sig_type=std_logic lab=VDD}
-C {lab_wire.sym} 680 -520 0 0 {name=p20 sig_type=std_logic lab=nwell}
-C {sg13g2_pr/ntap1.sym} 810 -610 0 0 {name=R3
-model=ntap1
-spiceprefix=X
-w=0.8e-6
-l=38e-6
-}
-C {lab_wire.sym} 810 -670 0 0 {name=p21 sig_type=std_logic lab=VDD}
-C {lab_wire.sym} 810 -520 0 0 {name=p26 sig_type=std_logic lab=nwell}
-C {sg13g2_pr/ntap1.sym} 680 -610 0 0 {name=R4
-model=ntap1
-spiceprefix=X
-w=0.8e-6
-l=38e-6
-}
-C {sg13g2_pr/ptap1_ring.sym} 420 -610 0 0 {name=R5
-model=ptap1
-spiceprefix=X
-w=18.5e-6
-l=6.3e-6
-rw=0.3e-6
-}
-C {sg13g2_pr/ntap1.sym} 940 -610 0 0 {name=R1
-model=ntap1
-spiceprefix=X
-w=0.8e-6
-l=17.5e-6
-}
-C {lab_wire.sym} 940 -670 0 0 {name=p29 sig_type=std_logic lab=VDD}
-C {lab_wire.sym} 940 -520 0 0 {name=p32 sig_type=std_logic lab=nwell}
 C {iopin.sym} 460 -840 2 0 {name=p33 lab=psub}
 C {iopin.sym} 460 -800 2 0 {name=p34 lab=nwell}

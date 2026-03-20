@@ -20,21 +20,10 @@ N 270 -260 310 -260 {lab=V_lk}
 N 445 -70 445 -45 {lab=GND}
 N 350 -70 445 -70 {lab=GND}
 N 540 -230 540 -160 {lab=V_mem}
-N -220 -160 -220 -140 {lab=VDD}
 N -220 -170 -220 -160 {lab=VDD}
-N -290 -160 -290 -140 {lab=VDD}
-N -150 -160 -150 -140 {lab=VDD}
-N -290 -160 -220 -160 {lab=VDD}
-N -220 -160 -150 -160 {lab=VDD}
-N -290 -80 -290 -60 {lab=nwell}
-N -290 -60 -220 -60 {lab=nwell}
-N -220 -80 -220 -60 {lab=nwell}
-N -220 -60 -150 -60 {lab=nwell}
-N -150 -80 -150 -60 {lab=nwell}
 N -220 -60 -220 -50 {lab=nwell}
 N 540 -100 540 -70 {lab=GND}
 N 510 -130 540 -130 {lab=psub}
-N 10 -170 10 -140 {lab=GND}
 N 10 -80 10 -50 {lab=psub}
 N 350 -260 380 -260 {lab=nwell}
 N 510 -260 540 -260 {lab=nwell}
@@ -93,36 +82,10 @@ C {ipin.sym} 450 -360 0 1 {name=p4 lab=I_in}
 C {iopin.sym} -220 -170 1 1 {name=p5 lab=VDD}
 C {iopin.sym} 445 -45 0 0 {name=p6 lab=GND}
 C {lab_wire.sym} 280 -260 0 0 {name=p3 sig_type=std_logic lab=V_lk}
-C {sg13g2_pr/ntap1.sym} -290 -110 0 0 {name=R1
-model=ntap1
-spiceprefix=X
-w=25.2e-6
-l=0.3e-6
-}
-C {sg13g2_pr/ntap1.sym} -220 -110 0 0 {name=R2
-model=ntap1
-spiceprefix=X
-w=0.3e-6
-l=9e-6
-}
-C {sg13g2_pr/ntap1.sym} -150 -110 0 0 {name=R3
-model=ntap1
-spiceprefix=X
-w=0.3e-6
-l=9e-6
-}
 C {iopin.sym} -220 -50 3 1 {name=p7 lab=nwell}
 C {lab_wire.sym} 380 -260 0 1 {name=p8 sig_type=std_logic lab=nwell}
 C {lab_wire.sym} 510 -130 0 0 {name=p9 sig_type=std_logic lab=psub}
 C {iopin.sym} 10 -50 3 1 {name=p11 lab=psub}
-C {sg13g2_pr/ptap1_ring.sym} 10 -110 0 0 {name=R4
-model=ptap1
-spiceprefix=X
-w=25.7e-6
-l=9e-6
-rw=0.3e-6
-}
-C {lab_wire.sym} 10 -170 0 0 {name=p10 sig_type=std_logic lab=GND}
 C {lab_wire.sym} 510 -260 0 0 {name=p12 sig_type=std_logic lab=nwell}
 C {sg13g2_pr/sg13_hv_pmos.sym} -230 -510 0 0 {name=Mdum1
 l=2u

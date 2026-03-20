@@ -1,4 +1,4 @@
-** sch_path: /foss/designs/adex_neuron/chenxi_working/ttihp26a-adex-neuron-ncs/xschem/chip_top.sch
+** sch_path: /foss/designs/adex_neuron/ttihp26a-adex-neuron-ncs/xschem/chip_top.sch
 .subckt chip_top ui_in[7] ui_in[6] ui_in[5] ui_in[4] ui_in[3] ui_in[2] ui_in[1] ui_in[0] ua[5] ua[4] ua[3] ua[2] ua[1] ua[0] VDPWR
 + uo_out[7] uo_out[6] uo_out[5] uo_out[4] uo_out[3] uo_out[2] uo_out[1] uo_out[0] VGND uio_in[7] uio_in[6] uio_in[5] uio_in[4] uio_in[3]
 + uio_in[2] uio_in[1] uio_in[0] uio_out[7] uio_out[6] uio_out[5] uio_out[4] uio_out[3] uio_out[2] uio_out[1] uio_out[0] uio_oe[7] uio_oe[6]
@@ -38,23 +38,15 @@ Cadecap[3] VGND ua[4] cap_cmim w=75e-6 l=75e-6
 Cadecap[2] VGND ua[3] cap_cmim w=75e-6 l=75e-6
 Cadecap[1] VGND ua[2] cap_cmim w=75e-6 l=75e-6
 Cadecap[0] VGND ua[1] cap_cmim w=75e-6 l=75e-6
-Cdecap2[4] VGND VDPWR cap_cmim w=75e-6 l=75e-6
-Cdecap2[3] VGND VDPWR cap_cmim w=75e-6 l=75e-6
-Cdecap2[2] VGND VDPWR cap_cmim w=75e-6 l=75e-6
-Cdecap2[1] VGND VDPWR cap_cmim w=75e-6 l=75e-6
-Cdecap2[0] VGND VDPWR cap_cmim w=75e-6 l=75e-6
-Cdecap1[2] VGND VDPWR cap_cmim w=30e-6 l=75e-6
-Cdecap1[1] VGND VDPWR cap_cmim w=30e-6 l=75e-6
-Cdecap1[0] VGND VDPWR cap_cmim w=30e-6 l=75e-6
-Cdecap3[2] VGND VDPWR cap_cmim w=75e-6 l=34e-6
-Cdecap3[1] VGND VDPWR cap_cmim w=75e-6 l=34e-6
-Cdecap3[0] VGND VDPWR cap_cmim w=75e-6 l=34e-6
+Cdecap2 VGND VDPWR cap_cmim w=75e-6 l=75e-6 m=5
+Cdecap1 VGND VDPWR cap_cmim w=30e-6 l=75e-6 m=3
+Cdecap3 VGND VDPWR cap_cmim w=75e-6 l=34e-6 m=3
 Cdecap4 VGND VDPWR cap_cmim w=30e-6 l=34e-6
 .ends
 
 * expanding   symbol:  neuron_row.sym # of pins=13
-** sym_path: /foss/designs/adex_neuron/chenxi_working/ttihp26a-adex-neuron-ncs/xschem/neuron_row.sym
-** sch_path: /foss/designs/adex_neuron/chenxi_working/ttihp26a-adex-neuron-ncs/xschem/neuron_row.sch
+** sym_path: /foss/designs/adex_neuron/ttihp26a-adex-neuron-ncs/xschem/neuron_row.sym
+** sch_path: /foss/designs/adex_neuron/ttihp26a-adex-neuron-ncs/xschem/neuron_row.sch
 .subckt neuron_row VDD GND nwell psub bias_VPI in_VI mem_VNTO cm_VI tau_VNI req_VABO ref_VNI refcap_VTO ack_VABI
 *.PININFO in_VI:I cm_VI:I bias_VPI:I VDD:B GND:B nwell:B psub:B mem_VNTO:O req_VABO:O refcap_VTO:O tau_VNI:I ref_VNI:I ack_VABI:I
 Xneuron VDD I_in tau_VNI mem_VNTO req_VABO ack_VABI ref_VNI GND refcap_VTO psub nwell neuron_noahp
@@ -63,8 +55,8 @@ xv2i VDD bias_VPI cm_VI in_VI I_in GND nwell psub V2I
 
 
 * expanding   symbol:  analog_buffer.sym # of pins=7
-** sym_path: /foss/designs/adex_neuron/chenxi_working/ttihp26a-adex-neuron-ncs/xschem/analog_buffer.sym
-** sch_path: /foss/designs/adex_neuron/chenxi_working/ttihp26a-adex-neuron-ncs/xschem/analog_buffer.sch
+** sym_path: /foss/designs/adex_neuron/ttihp26a-adex-neuron-ncs/xschem/analog_buffer.sym
+** sch_path: /foss/designs/adex_neuron/ttihp26a-adex-neuron-ncs/xschem/analog_buffer.sch
 .subckt analog_buffer inp_cm VDD Vbias out GND nwell psub
 *.PININFO inp_cm:I out:O VDD:B GND:B Vbias:I psub:B nwell:B
 M2 Vm inp_cm Vb nwell sg13_hv_pmos w=4u l=1u ng=1 m=4
@@ -72,22 +64,17 @@ M5 Vm Vm GND psub sg13_hv_nmos w=4u l=1u ng=1 m=4
 M13 Vb Vbias VDD nwell sg13_hv_pmos w=4u l=1u ng=1 m=40
 M3 out out Vb nwell sg13_hv_pmos w=4u l=1u ng=1 m=4
 M1 out Vm GND psub sg13_hv_nmos w=4u l=1u ng=1 m=4
-R2 VDD nwell ntap1 A=1.576e-11 P=4.1e-05
 MDBIAS VDD VDD VDD nwell sg13_hv_pmos w=4u l=1u ng=2 m=20
 MDdiffINP Vb Vb Vb nwell sg13_hv_pmos w=4u l=1u ng=2 m=2
 MDdiffINN Vb Vb Vb nwell sg13_hv_pmos w=4u l=1u ng=2 m=2
 MDNMIRA GND GND GND psub sg13_hv_nmos w=4u l=1u ng=2 m=2
 MDNMIRB GND GND GND psub sg13_hv_nmos w=4u l=1u ng=2 m=2
-R3 VDD nwell ntap1 A=3.04e-11 P=7.76e-05
-R4 VDD nwell ntap1 A=3.04e-11 P=7.76e-05
-R5 GND psub ptap1 A=1.452e-11 P=9.68e-05
-R1 VDD nwell ntap1 A=1.4e-11 P=3.66e-05
 .ends
 
 
 * expanding   symbol:  mux21.sym # of pins=7
-** sym_path: /foss/designs/adex_neuron/chenxi_working/ttihp26a-adex-neuron-ncs/xschem/mux21.sym
-** sch_path: /foss/designs/adex_neuron/chenxi_working/ttihp26a-adex-neuron-ncs/xschem/mux21.sch
+** sym_path: /foss/designs/adex_neuron/ttihp26a-adex-neuron-ncs/xschem/mux21.sym
+** sch_path: /foss/designs/adex_neuron/ttihp26a-adex-neuron-ncs/xschem/mux21.sch
 .subckt mux21 VDD VSS IN0 IN1 SEL0 SEL1 OUT
 *.PININFO VDD:B VSS:B IN0:I IN1:I SEL0:I SEL1:I OUT:O
 x1 VDD VSS SEL0 OUT IN0 tg_lv
@@ -96,8 +83,8 @@ x2 VDD VSS SEL1 OUT IN1 tg_lv
 
 
 * expanding   symbol:  sg13g2_tiehi.sym # of pins=3
-** sym_path: /foss/designs/adex_neuron/chenxi_working/ttihp26a-adex-neuron-ncs/xschem/sg13g2_tiehi.sym
-** sch_path: /foss/designs/adex_neuron/chenxi_working/ttihp26a-adex-neuron-ncs/xschem/sg13g2_tiehi.sch
+** sym_path: /foss/designs/adex_neuron/ttihp26a-adex-neuron-ncs/xschem/sg13g2_tiehi.sym
+** sch_path: /foss/designs/adex_neuron/ttihp26a-adex-neuron-ncs/xschem/sg13g2_tiehi.sch
 .subckt sg13g2_tiehi VDD VSS L_HI
 *.PININFO VSS:B VDD:B L_HI:O
 MN1 net1 net1 VSS VSS sg13_lv_nmos w=0.3u l=0.13u ng=1
@@ -108,8 +95,8 @@ MP2 L_HI net3 VDD VDD sg13_lv_pmos w=1.155u l=0.13u ng=1
 
 
 * expanding   symbol:  sg13g2_tielo.sym # of pins=3
-** sym_path: /foss/designs/adex_neuron/chenxi_working/ttihp26a-adex-neuron-ncs/xschem/sg13g2_tielo.sym
-** sch_path: /foss/designs/adex_neuron/chenxi_working/ttihp26a-adex-neuron-ncs/xschem/sg13g2_tielo.sch
+** sym_path: /foss/designs/adex_neuron/ttihp26a-adex-neuron-ncs/xschem/sg13g2_tielo.sym
+** sch_path: /foss/designs/adex_neuron/ttihp26a-adex-neuron-ncs/xschem/sg13g2_tielo.sch
 .subckt sg13g2_tielo VDD VSS L_LO
 *.PININFO VSS:B VDD:B L_LO:O
 MN1 net3 net2 VSS VSS sg13_lv_nmos w=0.385u l=0.13u ng=1
@@ -120,8 +107,8 @@ MP2 net1 net3 VDD VDD sg13_lv_pmos w=1.045u l=0.13u ng=1
 
 
 * expanding   symbol:  neuron_noahp.sym # of pins=11
-** sym_path: /foss/designs/adex_neuron/chenxi_working/ttihp26a-adex-neuron-ncs/xschem/neuron_noahp.sym
-** sch_path: /foss/designs/adex_neuron/chenxi_working/ttihp26a-adex-neuron-ncs/xschem/neuron_noahp.sch
+** sym_path: /foss/designs/adex_neuron/ttihp26a-adex-neuron-ncs/xschem/neuron_noahp.sym
+** sch_path: /foss/designs/adex_neuron/ttihp26a-adex-neuron-ncs/xschem/neuron_noahp.sch
 .subckt neuron_noahp VDD I_in V_lk Vmem REQ ACK V_ref GND Vrefcap psub nwell
 *.PININFO V_ref:I GND:B VDD:B REQ:O ACK:I I_in:I V_lk:I Vmem:O Vrefcap:O psub:B nwell:B
 Xinv1 VDD nwell net1 Vfb psub GND inv
@@ -135,8 +122,8 @@ Cref GND Vrefcap cap_cmim w=22.1e-6 l=15e-6
 
 
 * expanding   symbol:  V2I.sym # of pins=8
-** sym_path: /foss/designs/adex_neuron/chenxi_working/ttihp26a-adex-neuron-ncs/xschem/V2I.sym
-** sch_path: /foss/designs/adex_neuron/chenxi_working/ttihp26a-adex-neuron-ncs/xschem/V2I.sch
+** sym_path: /foss/designs/adex_neuron/ttihp26a-adex-neuron-ncs/xschem/V2I.sym
+** sch_path: /foss/designs/adex_neuron/ttihp26a-adex-neuron-ncs/xschem/V2I.sch
 .subckt V2I VDD Vbias inn_cm inp_cm out GND nwell psub
 *.PININFO inn_cm:I inp_cm:I out:O Vbias:I VDD:B GND:B psub:B nwell:B
 MIRA Vm Vm GND psub sg13_hv_nmos w=4u l=1u ng=2 m=4
@@ -151,14 +138,12 @@ MDdiffINP Vb Vb Vb nwell sg13_hv_pmos w=4u l=1u ng=2 m=2
 MDdiffINN Vb Vb Vb nwell sg13_hv_pmos w=4u l=1u ng=2 m=2
 MDNMIRA GND GND GND psub sg13_hv_nmos w=4u l=1u ng=2 m=2
 MDNMIRB GND GND GND psub sg13_hv_nmos w=4u l=1u ng=2 m=2
-R3 GND psub ptap1 A=1.452e-11 P=9.68e-05
-R1 VDD nwell ntap1 A=1.896e-11 P=0.0001264
 .ends
 
 
 * expanding   symbol:  tg_lv.sym # of pins=5
-** sym_path: /foss/designs/adex_neuron/chenxi_working/ttihp26a-adex-neuron-ncs/xschem/tg_lv.sym
-** sch_path: /foss/designs/adex_neuron/chenxi_working/ttihp26a-adex-neuron-ncs/xschem/tg_lv.sch
+** sym_path: /foss/designs/adex_neuron/ttihp26a-adex-neuron-ncs/xschem/tg_lv.sym
+** sch_path: /foss/designs/adex_neuron/ttihp26a-adex-neuron-ncs/xschem/tg_lv.sch
 .subckt tg_lv VDD VSS SEL OUT IN
 *.PININFO IN:I VDD:B VSS:B OUT:B SEL:I
 x1 VDD SEL selbar VSS inv_lv
@@ -170,29 +155,23 @@ Mdumm2 VSS VSS VSS VSS sg13_lv_nmos w=1u l=0.15u ng=1 m=2
 
 
 * expanding   symbol:  inv.sym # of pins=6
-** sym_path: /foss/designs/adex_neuron/chenxi_working/ttihp26a-adex-neuron-ncs/xschem/inv.sym
-** sch_path: /foss/designs/adex_neuron/chenxi_working/ttihp26a-adex-neuron-ncs/xschem/inv.sch
+** sym_path: /foss/designs/adex_neuron/ttihp26a-adex-neuron-ncs/xschem/inv.sym
+** sch_path: /foss/designs/adex_neuron/ttihp26a-adex-neuron-ncs/xschem/inv.sch
 .subckt inv VDD nwell out in psub GND
 *.PININFO in:I GND:B out:O VDD:B nwell:B psub:B
 M1 out in VDD nwell sg13_hv_pmos w=4u l=0.5u ng=1
 M2 out in GND psub sg13_hv_nmos w=4u l=0.5u ng=1
-R1 GND psub ptap1 A=2e-12 P=6e-06
-R2 VDD nwell ntap1 A=2e-12 P=6e-06
 .ends
 
 
 * expanding   symbol:  DPI.sym # of pins=7
-** sym_path: /foss/designs/adex_neuron/chenxi_working/ttihp26a-adex-neuron-ncs/xschem/DPI.sym
-** sch_path: /foss/designs/adex_neuron/chenxi_working/ttihp26a-adex-neuron-ncs/xschem/DPI.sch
+** sym_path: /foss/designs/adex_neuron/ttihp26a-adex-neuron-ncs/xschem/DPI.sym
+** sch_path: /foss/designs/adex_neuron/ttihp26a-adex-neuron-ncs/xschem/DPI.sch
 .subckt DPI I_in VDD V_mem V_lk GND nwell psub
 *.PININFO V_mem:O V_lk:I I_in:I VDD:B GND:B nwell:B psub:B
 Mdifl GND V_lk I_in nwell sg13_hv_pmos w=2u l=2u ng=2 m=8
 Mdifr V_mem V_mem I_in nwell sg13_hv_pmos w=2u l=2u ng=2 m=8
 Mtau V_mem V_lk GND psub sg13_hv_nmos w=4u l=4u ng=2 m=4
-R1 VDD nwell ntap1 A=7.56e-12 P=5.1e-05
-R2 VDD nwell ntap1 A=2.7e-12 P=1.86e-05
-R3 VDD nwell ntap1 A=2.7e-12 P=1.86e-05
-R4 GND psub ptap1 A=2.046e-11 P=0.0001364
 Mdum1 VDD VDD VDD nwell sg13_hv_pmos w=5u l=2u ng=10 m=2
 Mdum2 I_in VDD VDD nwell sg13_hv_pmos w=1u l=2u ng=1 m=8
 Mdum3 GND GND GND psub sg13_hv_nmos w=2u l=4u ng=4 m=2
@@ -202,8 +181,8 @@ Mdum5 GND GND GND psub sg13_hv_nmos w=2u l=3u ng=1 m=4
 
 
 * expanding   symbol:  FB_system.sym # of pins=6
-** sym_path: /foss/designs/adex_neuron/chenxi_working/ttihp26a-adex-neuron-ncs/xschem/FB_system.sym
-** sch_path: /foss/designs/adex_neuron/chenxi_working/ttihp26a-adex-neuron-ncs/xschem/FB_system.sch
+** sym_path: /foss/designs/adex_neuron/ttihp26a-adex-neuron-ncs/xschem/FB_system.sym
+** sch_path: /foss/designs/adex_neuron/ttihp26a-adex-neuron-ncs/xschem/FB_system.sch
 .subckt FB_system VDD out V_mem GND nwell psub
 *.PININFO out:O V_mem:B VDD:B GND:B nwell:B psub:B
 Mmirr Vmir Vmir VDD nwell sg13_hv_pmos w=4u l=2u ng=4
@@ -223,14 +202,12 @@ Mdum4 VDD VDD VDD nwell sg13_hv_pmos w=6u l=2u ng=6 m=2
 Mdum5 VDD VDD VDD nwell sg13_hv_pmos w=1u l=2u ng=1 m=3
 Mdum6 out VDD VDD nwell sg13_hv_pmos w=1u l=2u ng=1 m=2
 Mdum7 V_mem VDD VDD nwell sg13_hv_pmos w=1u l=2u ng=1
-R1 VDD nwell ntap1 A=1.554e-11 P=0.0001036
-R2 GND psub ptap1 A=1.416e-11 P=9.44e-05
 .ends
 
 
 * expanding   symbol:  REF_system.sym # of pins=9
-** sym_path: /foss/designs/adex_neuron/chenxi_working/ttihp26a-adex-neuron-ncs/xschem/REF_system.sym
-** sch_path: /foss/designs/adex_neuron/chenxi_working/ttihp26a-adex-neuron-ncs/xschem/REF_system.sch
+** sym_path: /foss/designs/adex_neuron/ttihp26a-adex-neuron-ncs/xschem/REF_system.sym
+** sch_path: /foss/designs/adex_neuron/ttihp26a-adex-neuron-ncs/xschem/REF_system.sch
 .subckt REF_system ACK V_mem REQ Vrefcap GND V_ref VDD nwell psub
 *.PININFO VDD:B GND:B V_ref:I REQ:I ACK:I V_mem:I Vrefcap:O psub:B nwell:B
 M10 Vrefcap REQ net2 nwell sg13_hv_pmos w=1u l=0.5u ng=1
@@ -241,14 +218,12 @@ M14 net1 V_ref GND psub sg13_hv_nmos w=4u l=4u ng=2 m=4
 Mdum3 GND GND GND psub sg13_hv_nmos w=2u l=4u ng=4 m=2
 Mdum4 GND GND GND psub sg13_hv_nmos w=0.5u l=3u ng=1 m=4
 Mdum5 GND GND GND psub sg13_hv_nmos w=2u l=3u ng=1 m=4
-R4 GND psub ptap1 A=2.046e-11 P=0.0001364
-R1 VDD nwell ntap1 A=1.824e-11 P=0.0001216
 .ends
 
 
 * expanding   symbol:  inv_lv.sym # of pins=4
-** sym_path: /foss/designs/adex_neuron/chenxi_working/ttihp26a-adex-neuron-ncs/xschem/inv_lv.sym
-** sch_path: /foss/designs/adex_neuron/chenxi_working/ttihp26a-adex-neuron-ncs/xschem/inv_lv.sch
+** sym_path: /foss/designs/adex_neuron/ttihp26a-adex-neuron-ncs/xschem/inv_lv.sym
+** sch_path: /foss/designs/adex_neuron/ttihp26a-adex-neuron-ncs/xschem/inv_lv.sch
 .subckt inv_lv VDD in out VSS
 *.PININFO in:I out:O VDD:B VSS:B
 M3 out in VDD VDD sg13_lv_pmos w=1u l=0.15u ng=1

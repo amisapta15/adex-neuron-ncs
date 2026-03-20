@@ -1,4 +1,4 @@
-* Extracted by KLayout with SG13G2 LVS runset on : 19/03/2026 12:40
+* Extracted by KLayout with SG13G2 LVS runset on : 20/03/2026 16:38
 
 .SUBCKT mux21 VSS SEL1 OUT IN1 VDD SEL0 IN0
 M$1 VSS VSS VSS VSS sg13_lv_nmos L=0.15u W=8u AS=3.92p AD=3.92p PS=23.84u

@@ -45,9 +45,7 @@ N -730 -620 -700 -620 {lab=psub}
 N -700 -590 -660 -590 {lab=GND}
 N -660 -650 -660 -590 {lab=GND}
 N -700 -650 -660 -650 {lab=GND}
-N -670 -370 -670 -340 {lab=GND}
 N -670 -280 -670 -250 {lab=psub}
-N -840 -360 -840 -330 {lab=VDD}
 N -840 -270 -840 -240 {lab=nwell}
 C {sg13g2_pr/sg13_hv_pmos.sym} -30 -360 0 1 {name=M10
 l=0.5u
@@ -132,21 +130,5 @@ spiceprefix=X
 C {lab_wire.sym} -730 -620 0 0 {name=p22 sig_type=std_logic lab=psub}
 C {lab_wire.sym} -700 -570 0 0 {name=p23 sig_type=std_logic lab=GND}
 C {iopin.sym} -670 -250 3 1 {name=p17 lab=psub}
-C {sg13g2_pr/ptap1_ring.sym} -670 -310 0 0 {name=R4
-model=ptap1
-spiceprefix=X
-w=25.7e-6
-l=9e-6
-rw=0.3e-6
-}
-C {lab_wire.sym} -670 -370 0 0 {name=p24 sig_type=std_logic lab=GND}
-C {sg13g2_pr/ntap1_ring.sym} -840 -300 0 0 {name=R1
-model=ntap1
-spiceprefix=X
-w=24e-6
-l=7e-6
-rw=0.3e-6
-}
-C {lab_wire.sym} -840 -360 0 0 {name=p33 sig_type=std_logic lab=VDD}
 C {iopin.sym} -840 -240 3 1 {name=p37 lab=nwell
 }
