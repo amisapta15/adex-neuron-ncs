@@ -23,13 +23,13 @@ N -50 -430 -50 -390 {lab=#net2}
 N -220 -360 -220 -320 {lab=Vrefcap}
 N -460 -320 -220 -320 {lab=Vrefcap}
 N -50 -540 -50 -490 {lab=VDD}
-N -80 -460 -50 -460 {lab=nwell}
-N -80 -360 -50 -360 {lab=nwell}
-N -80 -280 -50 -280 {lab=psub}
+N -80 -460 -50 -460 {lab=VDD}
+N -80 -360 -50 -360 {lab=VDD}
+N -80 -280 -50 -280 {lab=GND}
 N -50 -110 -50 -70 {lab=GND}
-N -80 -140 -50 -140 {lab=psub}
+N -80 -140 -50 -140 {lab=GND}
 N -500 -290 -500 -70 {lab=GND}
-N -530 -320 -500 -320 {lab=psub}
+N -530 -320 -500 -320 {lab=GND}
 N -980 -590 -980 -570 {lab=GND}
 N -1010 -620 -980 -620 {lab=psub}
 N -980 -590 -940 -590 {lab=GND}
@@ -45,8 +45,6 @@ N -730 -620 -700 -620 {lab=psub}
 N -700 -590 -660 -590 {lab=GND}
 N -660 -650 -660 -590 {lab=GND}
 N -700 -650 -660 -650 {lab=GND}
-N -670 -280 -670 -250 {lab=psub}
-N -840 -270 -840 -240 {lab=nwell}
 C {sg13g2_pr/sg13_hv_pmos.sym} -30 -360 0 1 {name=M10
 l=0.5u
 w=1u
@@ -94,11 +92,11 @@ C {ipin.sym} 100 -320 0 1 {name=p4 lab=REQ}
 C {ipin.sym} 90 -460 0 1 {name=p5 lab=ACK}
 C {ipin.sym} -500 -430 0 0 {name=p6 lab=V_mem}
 C {opin.sym} -220 -360 0 0 {name=p7 lab=Vrefcap}
-C {lab_wire.sym} -60 -460 0 0 {name=p8 sig_type=std_logic lab=nwell}
-C {lab_wire.sym} -60 -360 0 0 {name=p9 sig_type=std_logic lab=nwell}
-C {lab_wire.sym} -60 -280 0 0 {name=p10 sig_type=std_logic lab=psub}
-C {lab_wire.sym} -60 -140 0 0 {name=p11 sig_type=std_logic lab=psub}
-C {lab_wire.sym} -510 -320 0 0 {name=p12 sig_type=std_logic lab=psub}
+C {lab_wire.sym} -60 -460 0 0 {name=p8 sig_type=std_logic lab=VDD}
+C {lab_wire.sym} -60 -360 0 0 {name=p9 sig_type=std_logic lab=VDD}
+C {lab_wire.sym} -60 -280 0 0 {name=p10 sig_type=std_logic lab=GND}
+C {lab_wire.sym} -60 -140 0 0 {name=p11 sig_type=std_logic lab=GND}
+C {lab_wire.sym} -510 -320 0 0 {name=p12 sig_type=std_logic lab=GND}
 C {sg13g2_pr/sg13_hv_nmos.sym} -960 -620 0 1 {name=Mdum3
 l=4u
 w=2u
@@ -107,7 +105,7 @@ m=2
 model=sg13_hv_nmos
 spiceprefix=X
 }
-C {lab_wire.sym} -1010 -620 0 0 {name=p18 sig_type=std_logic lab=psub}
+C {lab_wire.sym} -1010 -620 0 0 {name=p18 sig_type=std_logic lab=GND}
 C {lab_wire.sym} -980 -570 0 0 {name=p19 sig_type=std_logic lab=GND}
 C {sg13g2_pr/sg13_hv_nmos.sym} -820 -620 0 1 {name=Mdum4
 l=3u
@@ -117,7 +115,7 @@ m=4
 model=sg13_hv_nmos
 spiceprefix=X
 }
-C {lab_wire.sym} -870 -620 0 0 {name=p20 sig_type=std_logic lab=psub}
+C {lab_wire.sym} -870 -620 0 0 {name=p20 sig_type=std_logic lab=GND}
 C {lab_wire.sym} -840 -570 0 0 {name=p21 sig_type=std_logic lab=GND}
 C {sg13g2_pr/sg13_hv_nmos.sym} -680 -620 0 1 {name=Mdum5
 l=3u
@@ -127,8 +125,5 @@ m=4
 model=sg13_hv_nmos
 spiceprefix=X
 }
-C {lab_wire.sym} -730 -620 0 0 {name=p22 sig_type=std_logic lab=psub}
+C {lab_wire.sym} -730 -620 0 0 {name=p22 sig_type=std_logic lab=GND}
 C {lab_wire.sym} -700 -570 0 0 {name=p23 sig_type=std_logic lab=GND}
-C {iopin.sym} -670 -250 3 1 {name=p17 lab=psub}
-C {iopin.sym} -840 -240 3 1 {name=p37 lab=nwell
-}

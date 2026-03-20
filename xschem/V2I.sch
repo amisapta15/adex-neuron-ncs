@@ -18,20 +18,20 @@ N -90 -320 10 -320 {lab=Vb}
 N -90 -210 -90 -20 {lab=Vm}
 N -90 -20 -90 0 {lab=Vm}
 N 110 -210 110 -100 {lab=out}
-N 10 -480 50 -480 {lab=nwell}
-N 50 -550 50 -480 {lab=nwell}
+N 10 -480 50 -480 {lab=VDD}
+N 50 -550 50 -480 {lab=VDD}
 N -140 -480 -30 -480 {lab=Vbias}
 N 10 -450 10 -320 {lab=Vb}
-N -90 -240 -60 -240 {lab=nwell}
+N -90 -240 -60 -240 {lab=VDD}
 N 150 -240 170 -240 {lab=inn_cm}
 N -150 -240 -130 -240 {lab=inp_cm}
-N 80 -240 110 -240 {lab=nwell}
+N 80 -240 110 -240 {lab=VDD}
 N 10 -610 10 -510 {lab=VDD}
 N -90 120 10 120 {lab=GND}
 N 10 120 10 180 {lab=GND}
 N 10 120 110 120 {lab=GND}
-N 550 -300 590 -300 {lab=nwell}
-N 590 -370 590 -300 {lab=nwell}
+N 550 -300 590 -300 {lab=VDD}
+N 590 -370 590 -300 {lab=VDD}
 N 410 -300 510 -300 {lab=Vbias}
 N 550 -270 550 -50 {lab=out}
 N 550 -420 550 -330 {lab=VDD}
@@ -39,8 +39,6 @@ N -120 30 -90 30 {lab=psub}
 N -90 60 -90 120 {lab=GND}
 N 110 30 140 30 {lab=psub}
 N 110 60 110 120 {lab=GND}
-N 270 -570 270 -500 {lab=psub}
-N 410 -570 410 -500 {lab=nwell}
 N -750 -200 -750 -170 {lab=GND}
 N -700 -200 -670 -200 {lab=psub}
 N -700 -170 -700 -140 {lab=GND}
@@ -55,17 +53,17 @@ N -750 -380 -750 -350 {lab=Vb}
 N -750 -350 -740 -350 {lab=Vb}
 N -750 -350 -750 -320 {lab=Vb}
 N -750 -320 -700 -320 {lab=Vb}
-N -700 -350 -660 -350 {lab=nwell}
+N -700 -350 -660 -350 {lab=VDD}
 N -550 -380 -500 -380 {lab=Vb}
 N -550 -380 -550 -350 {lab=Vb}
 N -550 -350 -540 -350 {lab=Vb}
-N -500 -350 -460 -350 {lab=nwell}
+N -500 -350 -460 -350 {lab=VDD}
 N -740 -580 -690 -580 {lab=VDD}
 N -740 -580 -740 -550 {lab=VDD}
 N -740 -550 -730 -550 {lab=VDD}
-N -690 -550 -640 -550 {lab=nwell}
+N -690 -550 -640 -550 {lab=VDD}
 N -550 -580 -500 -580 {lab=VDD}
-N -500 -550 -450 -550 {lab=nwell}
+N -500 -550 -450 -550 {lab=VDD}
 N -550 -550 -540 -550 {lab=VDD}
 N -550 -580 -550 -550 {lab=VDD}
 N -690 -620 -690 -580 {lab=VDD}
@@ -193,14 +191,14 @@ m=2
 model=sg13_hv_nmos
 spiceprefix=X
 }
-C {lab_wire.sym} -690 -350 0 1 {name=p22 sig_type=std_logic lab=nwell}
-C {lab_wire.sym} -480 -350 0 1 {name=p23 sig_type=std_logic lab=nwell}
+C {lab_wire.sym} -690 -350 0 1 {name=p22 sig_type=std_logic lab=VDD}
+C {lab_wire.sym} -480 -350 0 1 {name=p23 sig_type=std_logic lab=VDD}
 C {lab_wire.sym} -700 -150 0 0 {name=p24 sig_type=std_logic lab=GND}
 C {lab_wire.sym} -500 -150 0 0 {name=p25 sig_type=std_logic lab=GND}
 C {lab_wire.sym} -500 -590 0 0 {name=p26 sig_type=std_logic lab=VDD}
 C {lab_wire.sym} -690 -600 0 0 {name=p27 sig_type=std_logic lab=VDD}
-C {lab_wire.sym} -690 -200 2 0 {name=p30 sig_type=std_logic lab=psub}
-C {lab_wire.sym} -490 -200 2 0 {name=p31 sig_type=std_logic lab=psub}
+C {lab_wire.sym} -690 -200 2 0 {name=p30 sig_type=std_logic lab=GND}
+C {lab_wire.sym} -490 -200 2 0 {name=p31 sig_type=std_logic lab=GND}
 C {lab_wire.sym} 10 -370 0 0 {name=p33 sig_type=std_logic lab=Vb
 }
 C {lab_wire.sym} -500 -400 0 0 {name=p36 sig_type=std_logic lab=Vb
@@ -208,15 +206,11 @@ C {lab_wire.sym} -500 -400 0 0 {name=p36 sig_type=std_logic lab=Vb
 C {lab_wire.sym} -700 -400 0 0 {name=p35 sig_type=std_logic lab=Vb
 }
 C {lab_wire.sym} 0 -20 0 0 {name=p17 sig_type=std_logic lab=Vm}
-C {lab_wire.sym} -680 -550 0 1 {name=p28 sig_type=std_logic lab=nwell}
-C {lab_wire.sym} -490 -550 0 1 {name=p29 sig_type=std_logic lab=nwell}
-C {lab_wire.sym} 130 30 2 0 {name=p2 sig_type=std_logic lab=psub}
-C {lab_wire.sym} -100 30 2 1 {name=p3 sig_type=std_logic lab=psub}
-C {lab_wire.sym} -80 -240 2 0 {name=p4 sig_type=std_logic lab=nwell}
-C {lab_wire.sym} 100 -240 2 1 {name=p9 sig_type=std_logic lab=nwell}
-C {lab_wire.sym} 50 -520 2 0 {name=p20 sig_type=std_logic lab=nwell}
-C {lab_wire.sym} 590 -340 2 0 {name=p21 sig_type=std_logic lab=nwell}
-C {iopin.sym} 270 -500 1 0 {name=p32 lab=psub
-}
-C {iopin.sym} 410 -500 1 0 {name=p34 lab=nwell
-}
+C {lab_wire.sym} -680 -550 0 1 {name=p28 sig_type=std_logic lab=VDD}
+C {lab_wire.sym} -490 -550 0 1 {name=p29 sig_type=std_logic lab=VDD}
+C {lab_wire.sym} 130 30 2 0 {name=p2 sig_type=std_logic lab=GND}
+C {lab_wire.sym} -100 30 2 1 {name=p3 sig_type=std_logic lab=GND}
+C {lab_wire.sym} -80 -240 2 0 {name=p4 sig_type=std_logic lab=VDD}
+C {lab_wire.sym} 100 -240 2 1 {name=p9 sig_type=std_logic lab=VDD}
+C {lab_wire.sym} 50 -520 2 0 {name=p20 sig_type=std_logic lab=VDD}
+C {lab_wire.sym} 590 -340 2 0 {name=p21 sig_type=std_logic lab=VDD}

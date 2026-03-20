@@ -27,8 +27,6 @@ T {Bidirectional pins configurations:
 uio[4:0] input
 uio[7:5] output} -680 -200 0 0 0.3 0.3 {}
 N 30 -380 30 -340 {lab=VGND}
-N 50 -380 50 -340 {lab=VDPWR}
-N 70 -380 70 -340 {lab=VGND}
 N -160 -280 -110 -280 {lab=ua[5]}
 N 10 -180 10 -110 {lab=ua[3]}
 N 30 -180 30 -110 {lab=ua[4]}
@@ -62,8 +60,6 @@ N -420 120 -360 120 {lab=uio_out[4:0]}
 N -750 120 -700 120 {lab=uio_in[7:5]}
 N 530 -260 570 -260 {lab=NN_mem_VNT[10:1]}
 N 530 -240 570 -240 {lab=NN_refcap_VT[10:1]}
-N 140 150 140 190 {lab=VDPWR}
-N 160 150 160 190 {lab=VGND}
 N -40 80 10 80 {lab=NN_refcap_VT[0],NN_mem_VNT[0]}
 N -380 -720 -380 -690 {lab=VGND}
 N -380 -630 -380 -600 {lab=ua[4:1]}
@@ -97,8 +93,6 @@ C {lab_wire.sym} 190 -280 0 1 {name=p30 sig_type=std_logic lab=uio_out[7:5],uo_o
 C {lab_wire.sym} 190 -260 0 1 {name=p31 sig_type=std_logic lab=NN_mem_VNT[10:0]}
 C {lab_wire.sym} 190 -240 0 1 {name=p32 sig_type=std_logic lab=NN_refcap_VT[10:0]}
 C {lab_wire.sym} 10 -340 3 1 {name=p1 sig_type=std_logic lab=VDPWR}
-C {lab_wire.sym} 70 -340 3 1 {name=p2 sig_type=std_logic lab=VGND}
-C {lab_wire.sym} 50 -340 3 1 {name=p3 sig_type=std_logic lab=VDPWR}
 C {analog_buffer.sym} 100 340 0 0 {name=xabuf[1:0]}
 C {lab_wire.sym} 870 90 0 1 {name=p19 sig_type=std_logic lab=ua[0]}
 C {mux21.sym} 690 90 0 0 {name=xmux}
@@ -138,8 +132,6 @@ C {noconn.sym} 570 -260 0 1 {name=lnoconn2[9:0]}
 C {lab_wire.sym} 560 -260 0 0 {name=p43 sig_type=std_logic lab=NN_mem_VNT[10:1]}
 C {noconn.sym} 570 -240 0 1 {name=lnoconn3[9:0]}
 C {lab_wire.sym} 560 -240 0 0 {name=p44 sig_type=std_logic lab=NN_refcap_VT[10:1]}
-C {lab_wire.sym} 160 150 3 0 {name=p45 sig_type=std_logic lab=VGND}
-C {lab_wire.sym} 140 150 3 0 {name=p46 sig_type=std_logic lab=VDPWR}
 C {lab_wire.sym} 10 80 0 0 {name=p47 sig_type=std_logic lab=NN_refcap_VT[0],NN_mem_VNT[0]}
 C {sg13g2_pr/cap_cmim.sym} -380 -660 0 0 {name=Cadecap[3:0]
 model=cap_cmim
