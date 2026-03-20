@@ -65,8 +65,26 @@ N 530 -240 570 -240 {lab=NN_refcap_VT[10:1]}
 N 140 150 140 190 {lab=VDPWR}
 N 160 150 160 190 {lab=VGND}
 N -40 80 10 80 {lab=NN_refcap_VT[0],NN_mem_VNT[0]}
-N -380 -440 -380 -410 {lab=VGND}
-N -380 -350 -380 -320 {lab=ua[5:1]}
+N -380 -720 -380 -690 {lab=VGND}
+N -380 -630 -380 -600 {lab=ua[4:1]}
+N -740 -780 -740 -750 {lab=VGND}
+N -740 -610 -740 -580 {lab=VDPWR}
+N -690 -610 -590 -610 {lab=VDPWR}
+N -590 -620 -590 -610 {lab=VDPWR}
+N -690 -640 -690 -610 {lab=VDPWR}
+N -740 -610 -690 -610 {lab=VDPWR}
+N -790 -610 -740 -610 {lab=VDPWR}
+N -790 -660 -790 -610 {lab=VDPWR}
+N -890 -610 -790 -610 {lab=VDPWR}
+N -890 -680 -890 -610 {lab=VDPWR}
+N -790 -750 -740 -750 {lab=VGND}
+N -890 -750 -890 -740 {lab=VGND}
+N -790 -750 -790 -720 {lab=VGND}
+N -890 -750 -790 -750 {lab=VGND}
+N -740 -750 -690 -750 {lab=VGND}
+N -690 -750 -690 -700 {lab=VGND}
+N -690 -750 -590 -750 {lab=VGND}
+N -590 -750 -590 -680 {lab=VGND}
 C {neuron_row.sym} 40 -270 0 0 {name=xrow[10:0]}
 C {lab_wire.sym} 30 -340 3 1 {name=p23 sig_type=std_logic lab=VGND}
 C {lab_wire.sym} -110 -280 0 0 {name=p24 sig_type=std_logic lab=ua[5]}
@@ -123,11 +141,37 @@ C {lab_wire.sym} 560 -240 0 0 {name=p44 sig_type=std_logic lab=NN_refcap_VT[10:1
 C {lab_wire.sym} 160 150 3 0 {name=p45 sig_type=std_logic lab=VGND}
 C {lab_wire.sym} 140 150 3 0 {name=p46 sig_type=std_logic lab=VDPWR}
 C {lab_wire.sym} 10 80 0 0 {name=p47 sig_type=std_logic lab=NN_refcap_VT[0],NN_mem_VNT[0]}
-C {sg13g2_pr/cap_cmim.sym} -380 -380 0 0 {name=Cadecap[3:0]
+C {sg13g2_pr/cap_cmim.sym} -380 -660 0 0 {name=Cadecap[3:0]
 model=cap_cmim
 w=75e-6
 l=75e-6
 m=1
 spiceprefix=X}
-C {lab_wire.sym} -380 -420 0 0 {name=p48 sig_type=std_logic lab=VGND}
-C {lab_wire.sym} -380 -340 2 1 {name=p49 sig_type=std_logic lab=ua[4:1]}
+C {lab_wire.sym} -380 -700 0 0 {name=p48 sig_type=std_logic lab=VGND}
+C {lab_wire.sym} -380 -620 2 1 {name=p49 sig_type=std_logic lab=ua[4:1]}
+C {sg13g2_pr/cap_cmim.sym} -690 -670 0 0 {name=Cdecap2[4:0]
+model=cap_cmim
+w=75e-6
+l=75e-6
+m=1
+spiceprefix=X}
+C {lab_wire.sym} -740 -760 0 0 {name=Cadecap2[4:0] sig_type=std_logic lab=VGND}
+C {lab_wire.sym} -740 -600 2 1 {name=Cadecap3[4:0] sig_type=std_logic lab=VDPWR}
+C {sg13g2_pr/cap_cmim.sym} -790 -690 0 0 {name=Cdecap1[2:0]
+model=cap_cmim
+w=30e-6
+l=75e-6
+m=1
+spiceprefix=X}
+C {sg13g2_pr/cap_cmim.sym} -590 -650 0 0 {name=Cdecap3[2:0]
+model=cap_cmim
+w=75e-6
+l=34e-6
+m=1
+spiceprefix=X}
+C {sg13g2_pr/cap_cmim.sym} -890 -710 0 0 {name=Cdecap4
+model=cap_cmim
+w=30e-6
+l=34e-6
+m=1
+spiceprefix=X}
