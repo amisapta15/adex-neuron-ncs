@@ -38,18 +38,7 @@ Cadecap[3] VGND ua[4] cap_cmim w=75e-6 l=75e-6
 Cadecap[2] VGND ua[3] cap_cmim w=75e-6 l=75e-6
 Cadecap[1] VGND ua[2] cap_cmim w=75e-6 l=75e-6
 Cadecap[0] VGND ua[1] cap_cmim w=75e-6 l=75e-6
-Cdecap2[4] VGND VDPWR cap_cmim w=75e-6 l=75e-6
-Cdecap2[3] VGND VDPWR cap_cmim w=75e-6 l=75e-6
-Cdecap2[2] VGND VDPWR cap_cmim w=75e-6 l=75e-6
-Cdecap2[1] VGND VDPWR cap_cmim w=75e-6 l=75e-6
-Cdecap2[0] VGND VDPWR cap_cmim w=75e-6 l=75e-6
-Cdecap1[2] VGND VDPWR cap_cmim w=30e-6 l=75e-6
-Cdecap1[1] VGND VDPWR cap_cmim w=30e-6 l=75e-6
-Cdecap1[0] VGND VDPWR cap_cmim w=30e-6 l=75e-6
-Cdecap3[2] VGND VDPWR cap_cmim w=75e-6 l=34e-6
-Cdecap3[1] VGND VDPWR cap_cmim w=75e-6 l=34e-6
-Cdecap3[0] VGND VDPWR cap_cmim w=75e-6 l=34e-6
-Cdecap4 VGND VDPWR cap_cmim w=30e-6 l=34e-6
+Cdecap2 VGND VDPWR cap_cmim w=75e-6 l=75e-6 m=5
 .ends
 
 * expanding   symbol:  neuron_row.sym # of pins=11
